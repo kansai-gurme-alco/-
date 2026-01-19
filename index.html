@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>関西グルメ あるこ</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --denim-navy: #1b2e4b; /* ジーンズのような深い紺 */
+            --off-white: #ffffff;
+        }
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            background-color: var(--off-white);
+            color: #2d3436;
+            line-height: 1.8;
+        }
+        .bg-denim {
+            background-color: var(--denim-navy);
+            background-image: url("https://www.transparenttextures.com/patterns/denim.png");
+        }
+        .text-denim { color: var(--denim-navy); }
+        .border-denim { border-color: var(--denim-navy); }
+        
+        .section-container {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 80px 24px;
+        }
+        .intro-text {
+            font-size: 1.1rem;
+            letter-spacing: 0.05em;
+        }
+        .btn-sns {
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 16px 32px;
+            border-radius: 4px;
+            font-weight: 600;
+            width: 100%;
+            max-width: 320px;
+        }
+        .instagram-btn {
+            background-color: var(--denim-navy);
+            color: white;
+        }
+
+        /* ロゴ表示のためのスタイル */
+        .header-logo {
+            width: 140px; /* ロゴのサイズ調整 */
+            height: auto;
+            margin-bottom: 20px;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header / Logo & Title -->
+    <header class="pt-20 pb-10 text-center flex flex-col items-center">
+        <!-- 添付されたロゴ画像を最上部に表示 -->
+        <img src="image.png" alt="関西グルメ あるこ ロゴ" class="header-logo">
+        <h1 class="text-2xl font-bold tracking-[0.2em] text-denim">関西グルメ あるこ</h1>
+    </header>
+
+    <!-- 1. 自己紹介 -->
+    <section class="section-container">
+        <div class="intro-text">
+            関西を歩き回る営業マンが、<br>
+            関西のグルメ情報をInstagram・TikTokにて発信しています。<br>
+            <br>
+            居酒屋／カフェ／手土産／スイーツなど、<br>
+            ジャンルに縛られず、<br>
+            店舗様の魅力を大切にお届けしています。
+        </div>
+    </section>
+
+    <!-- 2. 大事にしていること -->
+    <section class="section-container bg-gray-50">
+        <h2 class="text-lg font-bold mb-10 text-center tracking-widest border-b border-gray-200 pb-4">大事にしていること</h2>
+        <ul class="space-y-8">
+            <li class="flex flex-col gap-2">
+                <span class="text-denim font-bold">● 店舗様の魅力を最大限尊重すること</span>
+                <p class="text-sm pl-4 text-gray-600">お店の推しポイント、こだわりを最優先に考えます。</p>
+            </li>
+            <li class="flex flex-col gap-2">
+                <span class="text-denim font-bold">● お店ごとの魅力を汲み取った表現</span>
+                <p class="text-sm pl-4 text-gray-600">実際の店舗様で感じた雰囲気、感想、空気感を大事にお伝えします。</p>
+            </li>
+            <li class="flex flex-col gap-2">
+                <span class="text-denim font-bold">● 見映え・臨場感を意識した投稿</span>
+                <p class="text-sm pl-4 text-gray-600">長年の撮影・編集経験を活かし、一番美味しい瞬間を切り取ります。</p>
+            </li>
+            <li class="flex flex-col gap-2">
+                <span class="text-denim font-bold">● 「3秒で気になる」構成・サムネイル設計</span>
+                <p class="text-sm pl-4 text-gray-600">パッと見て興味を持ってもらえるよう、最初の瞬間に全力を注ぎます。</p>
+            </li>
+        </ul>
+    </section>
+
+    <!-- 3. 強み・姿勢 -->
+    <section class="section-container">
+        <h2 class="text-lg font-bold mb-10 text-center tracking-widest border-b border-gray-200 pb-4">強み・特徴</h2>
+        <div class="grid gap-6">
+            <div class="p-6 border border-gray-100 rounded-sm hover:border-denim/20 transition">
+                <ul class="space-y-4 text-sm md:text-base">
+                    <li>・現在、約40投稿（毎日継続運用中）</li>
+                    <li>・リール／フィード／TikTok への同時投稿も可能</li>
+                    <li>・共同投稿（コラボ投稿）にも対応しています</li>
+                    <li>・Google口コミ／食べログへの投稿も対応可能</li>
+                    <li>・PR条件はご相談させてください</li>
+                    <li class="pl-4 text-gray-500 text-xs">※基本的には店舗様の条件・ご要望を優先させていただきます</li>
+                </ul>
+            </div>
+            <div class="p-6 bg-denim text-white rounded-sm shadow-xl">
+                <p class="text-sm leading-loose">
+                    営業職としての経験から、<br>
+                    常に「相手目線・店舗様目線」で考えることを意識しています。<br>
+                    料理・ジャンル・特徴が、<br>
+                    サムネイルだけで一目で伝わる設計にこだわっています。
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. こういった店舗様からご依頼を受けています -->
+    <section class="section-container bg-gray-50">
+        <h2 class="text-lg font-bold mb-10 text-center tracking-widest border-b border-gray-200 pb-4">こんな店舗様からご依頼を受けています</h2>
+        <div class="space-y-4">
+            <p class="flex items-center gap-3">
+                <span class="w-1.5 h-1.5 bg-denim rounded-full"></span>
+                <span>初めてインフルエンサーPRを検討している</span>
+            </p>
+            <p class="flex items-center gap-3">
+                <span class="w-1.5 h-1.5 bg-denim rounded-full"></span>
+                <span>広告感の強い投稿は避けたい</span>
+            </p>
+            <p class="flex items-center gap-3">
+                <span class="w-1.5 h-1.5 bg-denim rounded-full"></span>
+                <span>お店の想いやこだわりを丁寧に表現してほしい</span>
+            </p>
+            <p class="flex items-center gap-3">
+                <span class="w-1.5 h-1.5 bg-denim rounded-full"></span>
+                <span>柔軟に相談しながら進めたい</span>
+            </p>
+        </div>
+    </section>
+
+    <!-- 5. なぜグルメ発信をしているのか？ -->
+    <section class="section-container">
+        <h2 class="text-lg font-bold mb-10 text-center tracking-widest border-b border-gray-200 pb-4">なぜ、発信をしているのか？</h2>
+        <div class="space-y-8 text-gray-700">
+            <p>
+                きっかけは、自分自身の「備忘録」でした。<br>
+                営業という仕事柄、会食やランチの機会は多かったのですが、<br>
+                せっかくの素晴らしい食体験を、<br>
+                これまで記録に残してこなかったことに気づきました。
+            </p>
+            <p>
+                「美味しいのに、意外と知られていない」<br>
+                そんなお店が世の中にはたくさんあります。<br>
+                そういった素敵なお店をもっと多くの人に知ってほしい。<br>
+                そして、知人や家族と「次どこ行く？」と悩むときに、<br>
+                真っ先に開いてもらえるような情報源を作りたいと考え、始めました。
+            </p>
+            <p>
+                元々プロカメラマンを目指していたほど、撮影と編集が純粋に好きです。<br>
+                趣味として続けてきた写真や動画のスキル、<br>
+                そこで培った「3秒で興味を持たせる」視覚的なアプローチは、<br>
+                一般的な方よりは少しだけ得意だと思っております。
+            </p>
+            <p class="font-bold text-denim border-l-4 border-denim pl-4 mt-12">
+                店舗様と作り上げる発信を心がけています。<br>
+                ぜひ一度、貴店の魅力をご紹介させてください。
+            </p>
+        </div>
+    </section>
+
+    <!-- SNS & Contact -->
+    <section class="section-container text-center border-t border-gray-100">
+        <div class="flex flex-col items-center gap-6">
+            <div class="flex gap-8 mb-4">
+                <a href="https://www.instagram.com/kansai_gurme_alco?igsh=cWZ2d2Fhd3h1OTZ6&utm_source=qr" target="_blank" class="hover:opacity-70 transition">
+                    <i class="fab fa-instagram text-4xl text-denim"></i>
+                </a>
+                <a href="https://www.tiktok.com/@kansai_gurme_alco?_r=1&_t=ZS-93Cgzyw9mHU" target="_blank" class="hover:opacity-70 transition">
+                    <i class="fab fa-tiktok text-4xl text-black"></i>
+                </a>
+            </div>
+            
+            <a href="https://www.instagram.com/kansai_gurme_alco?igsh=cWZ2d2Fhd3h1OTZ6&utm_source=qr" target="_blank" class="btn-sns instagram-btn">
+                <i class="fab fa-instagram"></i>
+                PRのご相談はこちら
+            </a>
+            
+            <p class="text-xs text-gray-400 mt-10">
+                実績はまだ多くありません。<br>
+                だからこそ、一件一件のご依頼に、<br>
+                どこよりも誠実に向き合わせていただきます。
+            </p>
+        </div>
+    </section>
+
+    <footer class="pb-10 text-center text-[10px] text-gray-300 tracking-widest">
+        &copy; 関西グルメ あるこ
+    </footer>
+
+</body>
+</html>
+
