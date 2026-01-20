@@ -37,7 +37,7 @@
     /* ★ 見出しをしっかり太く */
     .section-title {
       text-align: center;
-      font-weight: 800; /* ← 強化 */
+      font-weight: 850; /* ← 強化 */
       letter-spacing: 0.15em;
       border-bottom: 1px solid #e5e7eb;
       padding-bottom: 0.5rem;
@@ -68,6 +68,29 @@
       color: #ffffff;
       text-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
     }
+
+    /* 吹き出しデザイン */
+    .speech-bubble {
+      position: relative;
+      background: rgba(255,255,255,0.85);
+      color: #1f2a44;
+      padding: 0.7rem 1rem;
+      border-radius: 12px;
+      max-width: 280px;
+      margin: 0.5rem auto 0 auto;
+      text-align: center;
+      font-weight: 500;
+    }
+    .speech-bubble::after {
+      content: "";
+      position: absolute;
+      bottom: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      border-width: 10px;
+      border-style: solid;
+      border-color: transparent transparent rgba(255,255,255,0.85) transparent;
+    }
   </style>
 </head>
 
@@ -80,9 +103,9 @@
     関西グルメ あるこ
   </h1>
 
-  <p class="hero-text text-sm md:text-base">
+  <div class="speech-bubble">
     ご覧いただきありがとうございます😊
-  </p>
+  </div>
 </header>
 
 <section class="section">
@@ -91,7 +114,7 @@
     <p class="text-sm md:text-base">
       関西を歩き回る営業マンが、関西のグルメ情報を
       Instagram・TikTokを中心に発信しています。<br>
-      居酒屋・カフェ・スイーツなどジャンルに縛られず、
+      居酒屋・カフェ・スイーツ・商品などジャンルに縛られず、
       店舗様の魅力が自然に伝わる投稿を心がけています。
     </p>
   </div>
@@ -138,16 +161,16 @@
       <p>
         きっかけは、自分自身の「備忘録」でした。
         営業という仕事柄、会食やランチの機会は多いものの、
-        これまでその食体験を記録していなかったことが始まりです。
+        これまで記録していなかったことが始まりです。
       </p>
       <p>
         「美味しいのに意外と知られていない」お店を、
-        必要としている人にきちんと届けたいという想いと、知人や家内と「どこに行こうか？」と迷う時の情報源を作りたいと考え、発信を始めました。
+        必要としている人に届けたいという想いと、知人や家内と「どこに行こうか？」と迷う時の情報源を作りたいと考え、発信を始めました。
       </p>
       <p>
-        カメラマンを目指していたこともあり、
-        撮影や編集そのものが好きで、得意な方だと思っております。
-        そして、1人で完結するのではなく、店舗様と一緒に魅力を作り上げる発信を心がけています。
+        カメラマンを目指していたことから、
+        撮影や編集が好きで、得意な方だと思っております。
+        そして、1人で完結するのではなく、店舗様と一緒に投稿を作り上げる発信を心がけています。
       </p>
     </div>
   </div>
@@ -168,11 +191,9 @@
    class="btn-dm mx-auto flex flex-col items-center justify-center">
   <span class="flex items-center gap-2">
     <i class="fas fa-envelope"></i>
-    PRのご依頼はこちらから
+    PR・お仕事のご依頼はDMからお願いいたします。
   </span>
-  <span class="text-[10px] opacity-80">
-    ※InstagramのDM画面が開きます
-  </span>
+
 </a>
 
     <p class="text-xs text-gray-500">
@@ -188,4 +209,3 @@
 
 </body>
 </html>
-
