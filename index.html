@@ -68,26 +68,27 @@
       text-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
     }
 
-    /* 吹き出し */
+    /* 吹き出しデザイン */
     .speech-bubble {
       position: relative;
-      background: rgba(255,255,255,0.9);
+      background: rgba(255,255,255,0.85);
       color: #1f2a44;
-      padding: 0.6rem 1rem;
+      padding: 1rem 1.2rem;
       border-radius: 14px;
-      text-align: center;
-      font-size: 0.85rem;
+      max-width: 520px;
+      margin: 1.8rem auto 0 auto; /* ← PR対応についてとの距離を少し空ける */
+      font-weight: 500;
     }
 
     .speech-bubble::after {
       content: "";
       position: absolute;
-      bottom: -8px;
+      top: -20px;                 /* ← 矢印を上に出す */
       left: 50%;
       transform: translateX(-50%);
-      border-width: 8px 8px 0 8px;
+      border-width: 10px;
       border-style: solid;
-      border-color: rgba(255,255,255,0.9) transparent transparent transparent;
+      border-color: transparent transparent rgba(255,255,255,0.85) transparent;
     }
   </style>
 </head>
@@ -133,12 +134,14 @@
       </li>
     </ul>
 
-    <!-- 大事にしていること：吹き出し -->
-    <div class="mt-6 space-y-4">
-      <div class="speech-bubble">・店舗様の想いやこだわりを最優先にすること</div>
-      <div class="speech-bubble">・広告感を抑え、自然に伝わる表現にすること</div>
-      <div class="speech-bubble">・実際の雰囲気や体験を大切にした発信</div>
-      <div class="speech-bubble">・「行ってみたい」と思ってもらえる構成</div>
+    <div class="speech-bubble">
+      <h2 class="section-title text-sm md:text-base">大事にしていること</h2>
+      <ul class="space-y-2 text-sm md:text-base">
+        <li>・店舗様の想いやこだわりを最優先にすること</li>
+        <li>・広告感を抑え、自然に伝わる表現にすること</li>
+        <li>・実際の雰囲気や体験を大切にした発信</li>
+        <li>・「行ってみたい」と思ってもらえる構成</li>
+      </ul>
     </div>
 
     <p class="mt-6 font-bold text-sm md:text-base border-l-4 border-[#1f2a44] pl-4">
