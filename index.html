@@ -109,7 +109,6 @@
 <section class="section">
   <div class="card">
     <h2 class="section-title text-base md:text-lg">強み・特徴</h2>
-
     <ul class="space-y-2 text-sm md:text-base">
       <li>・リール／フィード投稿どちらも対応</li>
       <li>・TikTokへの投稿も可能</li>
@@ -117,45 +116,6 @@
       <li>・Google、食べログの投稿も対応</li>
       <li>・PR条件はご相談させてください</li>
     </ul>
-
-    <p class="mt-4 font-bold text-sm md:text-base border-l-4 border-[#1f2a44] pl-4">
-      営業職としての経験から「何が伝われば興味を持ってもらえるか」を常に意識し、
-      料理・ジャンル・特徴がサムネイルだけで一目で伝わる設計にこだわっています。
-    </p>
-  </div>
-</section>
-
-<section class="section">
-  <div class="card">
-    <h2 class="section-title text-base md:text-lg">こんな店舗から依頼を受けています</h2>
-    <ul class="space-y-2 text-sm md:text-base">
-      <li>・初めてインフルエンサーPRを検討している</li>
-      <li>・広告感の強い投稿は避けたい</li>
-      <li>・想いやこだわりを丁寧に表現してほしい</li>
-      <li>・柔軟に相談しながら進めたい</li>
-    </ul>
-  </div>
-</section>
-
-<section class="section">
-  <div class="card">
-    <h2 class="section-title text-base md:text-lg">なぜ、発信をしているのか？</h2>
-    <div class="space-y-3 text-sm md:text-base">
-      <p>
-        きっかけは、自分自身の「備忘録」でした。
-        営業という仕事柄、会食やランチの機会は多いものの、
-        これまでその食体験を記録していなかったことが始まりです。
-      </p>
-      <p>
-        「美味しいのに意外と知られていない」お店を、
-        必要としている人にきちんと届けたい。
-        情報源を作りたいと考え、発信を始めました。
-      </p>
-      <p>
-        撮影や編集そのものが好きで、
-        店舗様と一緒に魅力を作り上げる発信を心がけています。
-      </p>
-    </div>
   </div>
 </section>
 
@@ -170,15 +130,14 @@
       </a>
     </div>
 
-    <a
-      href="https://ig.me/m/kansai_gurme_alco"
-      target="_blank"
-      rel="noopener noreferrer"
+    <!-- PRボタン（JS制御） -->
+    <button
+      onclick="openInstagramDM()"
       class="btn-sns mx-auto w-fit"
     >
       <i class="fas fa-envelope"></i>
       PRのご依頼はこちらから
-    </a>
+    </button>
 
     <p class="text-xs text-gray-500">
       実績はまだ多くありませんが、<br>
@@ -190,6 +149,27 @@
 <footer class="text-center text-[10px] text-gray-300 mt-10 pb-6 tracking-widest">
   &copy; 関西グルメ あるこ
 </footer>
+
+<!-- ★ ここがポイント：bodyの一番下にJSを差し込み -->
+<script>
+  function openInstagramDM() {
+    const username = "kansai_gurme_alco";
+
+    // Instagramアプリ（DM直）
+    const appUrl = `instagram://direct?username=${username}`;
+
+    // 外部ブラウザ用
+    const webUrl = `https://ig.me/m/${username}`;
+
+    // まずアプリを試す
+    window.location.href = appUrl;
+
+    // 無理なら外部ブラウザ
+    setTimeout(() => {
+      window.open(webUrl, "_blank", "noopener,noreferrer");
+    }, 800);
+  }
+</script>
 
 </body>
 </html>
