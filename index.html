@@ -34,10 +34,9 @@
       padding: 1.5rem 1.4rem;
     }
 
-    /* ★ 見出しをしっかり太く */
     .section-title {
       text-align: center;
-      font-weight: 850; /* ← 強化 */
+      font-weight: 850;
       letter-spacing: 0.15em;
       border-bottom: 1px solid #e5e7eb;
       padding-bottom: 0.5rem;
@@ -69,27 +68,26 @@
       text-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
     }
 
-    /* 吹き出しデザイン */
+    /* 吹き出し */
     .speech-bubble {
       position: relative;
-      background: rgba(255,255,255,0.85);
+      background: rgba(255,255,255,0.9);
       color: #1f2a44;
-      padding: 0.7rem 1rem;
-      border-radius: 12px;
-      max-width: 280px;
-      margin: 0.5rem auto 0 auto;
+      padding: 0.6rem 1rem;
+      border-radius: 14px;
       text-align: center;
-      font-weight: 500;
+      font-size: 0.85rem;
     }
+
     .speech-bubble::after {
       content: "";
       position: absolute;
-      bottom: 100%;
+      bottom: -8px;
       left: 50%;
       transform: translateX(-50%);
-      border-width: 10px;
+      border-width: 8px 8px 0 8px;
       border-style: solid;
-      border-color: transparent transparent rgba(255,255,255,0.85) transparent;
+      border-color: rgba(255,255,255,0.9) transparent transparent transparent;
     }
   </style>
 </head>
@@ -135,25 +133,21 @@
       </li>
     </ul>
 
-    <section class="section">
-  <div class="card">
-    <h2 class="section-title text-base md:text-lg">大事にしていること</h2>
-    <ul class="space-y-2 text-sm md:text-base">
-      <li>・店舗様の想いやこだわりを最優先にすること</li>
-      <li>・広告感を抑え、自然に伝わる表現にすること</li>
-      <li>・実際の雰囲気や体験を大切にした発信</li>
-      <li>・「行ってみたい」と思ってもらえる構成</li>
-    </ul>
-  </div>
-</section>
+    <!-- 大事にしていること：吹き出し -->
+    <div class="mt-6 space-y-4">
+      <div class="speech-bubble">・店舗様の想いやこだわりを最優先にすること</div>
+      <div class="speech-bubble">・広告感を抑え、自然に伝わる表現にすること</div>
+      <div class="speech-bubble">・実際の雰囲気や体験を大切にした発信</div>
+      <div class="speech-bubble">・「行ってみたい」と思ってもらえる構成</div>
+    </div>
 
-    <p class="mt-4 font-bold text-sm md:text-base border-l-4 border-[#1f2a44] pl-4">
+    <p class="mt-6 font-bold text-sm md:text-base border-l-4 border-[#1f2a44] pl-4">
       営業職としての経験から「何が伝われば興味を持ってもらえるか」を常に意識し、
       料理・ジャンル・特徴がサムネイルだけで一目で伝わる設計にこだわっています。
     </p>
   </div>
 </section>
-  <!-- 依頼店舗 -->
+
 <section class="section">
   <div class="card">
     <h2 class="section-title text-base md:text-lg">こんな店舗から依頼を受けています</h2>
@@ -200,13 +194,12 @@
     </div>
 
     <a href="instagram://direct?username=kansai_gurme_alco"
-   class="btn-dm mx-auto flex flex-col items-center justify-center">
-  <span class="flex items-center gap-2">
-    <i class="fas fa-envelope"></i>
-    PR・お仕事のご依頼はDMからお願いいたします。
-  </span>
-
-</a>
+       class="btn-dm mx-auto flex flex-col items-center justify-center">
+      <span class="flex items-center gap-2">
+        <i class="fas fa-envelope"></i>
+        PR・お仕事のご依頼はDMからお願いいたします。
+      </span>
+    </a>
 
     <p class="text-xs text-gray-500">
       実績はまだ多くありませんが、<br>
@@ -221,4 +214,3 @@
 
 </body>
 </html>
-
