@@ -9,7 +9,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
 
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
@@ -17,92 +17,69 @@
     <style>
         :root {
             --denim-navy: #1b2e4b;
-            --off-white: #ffffff;
         }
 
         body {
             font-family: 'Noto Sans JP', sans-serif;
-            background-color: var(--off-white);
-            color: #2d3436;
+            color: var(--denim-navy);
             line-height: 1.9;
-        }
-
-        .bg-denim {
-            background-color: var(--denim-navy);
+            background-color: #f4f6f8;
             background-image: url("https://www.transparenttextures.com/patterns/denim.png");
         }
 
-        .text-denim {
-            color: var(--denim-navy);
-        }
-
-        .border-denim {
-            border-color: var(--denim-navy);
-        }
-
         .section-container {
-            max-width: 720px;
+            max-width: 760px;
             margin: 0 auto;
-            padding: 100px 24px;
+            padding: 96px 20px;
         }
 
-        .section-card {
-            background: #ffffff;
-            border-radius: 12px;
-            padding: 48px 32px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+        .glass-card {
+            background: rgba(255, 255, 255, 0.82);
+            backdrop-filter: blur(6px);
+            border-radius: 18px;
+            padding: 48px 36px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
         }
 
         .section-title {
+            letter-spacing: 0.25em;
             position: relative;
+            padding-bottom: 14px;
             display: inline-block;
-            padding-bottom: 12px;
         }
 
         .section-title::after {
             content: "";
             position: absolute;
-            left: 50%;
             bottom: 0;
+            left: 50%;
             transform: translateX(-50%);
-            width: 40px;
+            width: 44px;
             height: 2px;
             background-color: var(--denim-navy);
         }
 
-        .intro-text {
-            font-size: 1.05rem;
-            letter-spacing: 0.04em;
-        }
-
         .btn-sns {
-            transition: all 0.3s ease;
             display: inline-flex;
             align-items: center;
             justify-content: center;
             gap: 10px;
-            padding: 18px 32px;
+            padding: 18px 36px;
             border-radius: 9999px;
+            background-color: var(--denim-navy);
+            color: #ffffff;
             font-weight: 600;
-            width: 100%;
-            max-width: 320px;
+            transition: all 0.3s ease;
         }
 
         .btn-sns:hover {
             transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
-        }
-
-        .instagram-btn {
-            background-color: var(--denim-navy);
-            color: white;
+            box-shadow: 0 12px 24px rgba(0,0,0,0.2);
         }
 
         .header-logo {
             width: 140px;
-            height: auto;
             margin-bottom: 24px;
-            display: block;
         }
     </style>
 </head>
@@ -110,58 +87,53 @@
 <body>
 
 <!-- Header -->
-<header class="pt-10 pb-16 text-center flex flex-col items-center">
+<header class="pt-16 pb-24 text-center flex flex-col items-center">
     <img src="image.png" alt="関西グルメ あるこ ロゴ" class="header-logo">
-    <h1 class="text-2xl font-bold tracking-[0.3em] text-denim">
+    <h1 class="text-2xl font-bold tracking-[0.35em]">
         関西グルメ あるこ
     </h1>
 </header>
 
-<!-- 1. 自己紹介 -->
+<!-- 自己紹介 -->
 <section class="section-container">
-    <div class="section-card text-center">
-        <h2 class="section-title text-lg font-bold tracking-widest mb-10">
-            ▪︎ 自己紹介
-        </h2>
-        <div class="intro-text">
+    <div class="glass-card text-center">
+        <h2 class="section-title text-lg font-bold mb-12">▪︎ 自己紹介</h2>
+        <p>
             関西を歩き回る営業マンが、<br>
             関西のグルメ情報をInstagram・TikTokにて発信しています。<br><br>
             居酒屋／カフェ／手土産／スイーツなど、<br>
             ジャンルに縛られず、<br>
             店舗様の魅力を大切にお届けしています。
-        </div>
+        </p>
     </div>
 </section>
 
-<!-- 2. 大事にしていること -->
-<section class="section-container bg-gray-50">
-    <div class="section-card">
-        <h2 class="section-title text-lg font-bold tracking-widest mb-14 text-center">
-            大事にしていること
-        </h2>
-
+<!-- 大事にしていること -->
+<section class="section-container">
+    <div class="glass-card">
+        <h2 class="section-title text-lg font-bold mb-14 text-center">大事にしていること</h2>
         <ul class="space-y-10">
             <li>
-                <span class="text-denim font-bold">● 店舗様の魅力を最大限尊重すること</span>
-                <p class="text-sm pl-4 text-gray-600 mt-2">推しポイント、こだわりを最優先に考えます。</p>
+                <p class="font-bold">● 店舗様の魅力を最大限尊重すること</p>
+                <p class="text-sm mt-2">推しポイント、こだわりを最優先に考えます。</p>
             </li>
             <li>
-                <span class="text-denim font-bold">● お店ごとの魅力を汲み取った表現</span>
-                <p class="text-sm pl-4 text-gray-600 mt-2">
+                <p class="font-bold">● お店ごとの魅力を汲み取った表現</p>
+                <p class="text-sm mt-2">
                     体験させていただいた雰囲気、感想、空気感を<br>
                     しっかり言語化して発信します。
                 </p>
             </li>
             <li>
-                <span class="text-denim font-bold">● 見映え・臨場感を意識した投稿</span>
-                <p class="text-sm pl-4 text-gray-600 mt-2">
+                <p class="font-bold">● 見映え・臨場感を意識した投稿</p>
+                <p class="text-sm mt-2">
                     長年の撮影・編集経験を活かし、<br>
                     目を引く瞬間を切り取ります。
                 </p>
             </li>
             <li>
-                <span class="text-denim font-bold">● 「3秒で気になる」構成・サムネイル設計</span>
-                <p class="text-sm pl-4 text-gray-600 mt-2">
+                <p class="font-bold">● 「3秒で気になる」構成・サムネイル設計</p>
+                <p class="text-sm mt-2">
                     パッと見て興味を持ってもらえるよう、<br>
                     編集と撮影に力を注ぎます。
                 </p>
@@ -170,27 +142,24 @@
     </div>
 </section>
 
-<!-- 3. 強み・特徴 -->
+<!-- 強み・特徴 -->
 <section class="section-container">
-    <h2 class="section-title text-lg font-bold tracking-widest mb-14 text-center">
-        強み・特徴
-    </h2>
-
-    <div class="grid gap-8">
-        <div class="p-8 border border-gray-200 rounded-xl bg-white">
-            <ul class="space-y-4 text-sm md:text-base">
+    <div class="grid gap-10 md:grid-cols-2">
+        <div class="glass-card">
+            <h2 class="section-title text-lg font-bold mb-10 text-center">強み・特徴</h2>
+            <ul class="space-y-4 text-sm">
                 <li>・リール／フィード投稿の対応</li>
-                <li class="pl-4 text-gray-500 text-xs">※ TikTok への投稿も可能です</li>
+                <li class="text-xs opacity-70">※ TikTok への投稿も可能です</li>
                 <li>・共同投稿も柔軟に行います</li>
                 <li>・Google口コミ／食べログへの投稿</li>
                 <li>・PR条件はご相談させてください</li>
-                <li class="pl-4 text-gray-500 text-xs">
+                <li class="text-xs opacity-70">
                     ※ 基本的には店舗様の条件・ご要望を優先させていただきます
                 </li>
             </ul>
         </div>
 
-        <div class="p-10 bg-denim text-white rounded-xl shadow-2xl">
+        <div class="glass-card">
             <p class="text-sm leading-loose">
                 営業職としての経験から、<br>
                 常に「相手目線・店舗様目線」で考えることを意識しています。<br>
@@ -201,71 +170,77 @@
     </div>
 </section>
 
-<!-- 4. 依頼店舗 -->
-<section class="section-container bg-gray-50">
-    <div class="section-card">
-        <h2 class="section-title text-lg font-bold tracking-widest mb-14 text-center">
+<!-- 依頼店舗 -->
+<section class="section-container">
+    <div class="glass-card">
+        <h2 class="section-title text-lg font-bold mb-12 text-center">
             こんな店舗から依頼を受けています
         </h2>
+        <div class="space-y-4">
+            <p>・初めてインフルエンサーPRを検討している</p>
+            <p>・広告感の強い投稿は避けたい</p>
+            <p>・想いやこだわりを丁寧に表現してほしい</p>
+            <p>・柔軟に相談しながら進めたい</p>
+        </div>
+    </div>
+</section>
 
-        <div class="space-y-5">
-            <p class="flex items-center gap-3">
-                <span class="w-2 h-2 bg-denim rounded-full"></span>
-                <span>初めてインフルエンサーPRを検討している</span>
+<!-- なぜ発信 -->
+<section class="section-container">
+    <div class="glass-card">
+        <h2 class="section-title text-lg font-bold mb-12 text-center">
+            なぜ、発信をしているのか？
+        </h2>
+
+        <div class="space-y-8 text-sm">
+            <p>
+                きっかけは、自分自身の「備忘録」でした。<br>
+                営業という仕事柄、会食やランチの機会は多いのですが、<br>
+                せっかくの素晴らしい食体験を、<br>
+                これまで記録に残してこなかったことに気づきました。
             </p>
-            <p class="flex items-center gap-3">
-                <span class="w-2 h-2 bg-denim rounded-full"></span>
-                <span>広告感の強い投稿は避けたい</span>
+
+            <p>
+                「美味しいのに、意外と知られていない」<br>
+                そんなお店が世の中にはたくさんあります。<br>
+                そういった素敵なお店をもっと多くの人に知ってほしい。<br>
+                そして、知人や家族と「次どこ行く？」と悩むときに、<br>
+                真っ先に開いてもらえるような情報源を作りたいと考え、始めました。
             </p>
-            <p class="flex items-center gap-3">
-                <span class="w-2 h-2 bg-denim rounded-full"></span>
-                <span>想いやこだわりを丁寧に表現してほしい</span>
+
+            <p>
+                元々カメラマンを目指していたほど、撮影と編集が純粋に好きです。<br>
+                趣味として続けてきた写真や動画のスキル、<br>
+                そこで培った「興味を持ってもらう」視覚的なアプローチは、<br>
+                一般的な方よりは少しだけ得意だと思っております。
             </p>
-            <p class="flex items-center gap-3">
-                <span class="w-2 h-2 bg-denim rounded-full"></span>
-                <span>柔軟に相談しながら進めたい</span>
+
+            <p class="font-bold border-l-4 pl-4">
+                店舗様と作り上げる発信を心がけています。<br>
+                ぜひ一度、貴店の魅力をご紹介させてください。
             </p>
         </div>
     </div>
 </section>
 
-<!-- 5. なぜ発信 -->
-<section class="section-container">
-    <h2 class="section-title text-lg font-bold tracking-widest mb-14 text-center">
-        なぜ、発信をしているのか？
-    </h2>
-
-    <div class="space-y-10 text-gray-700 max-w-xl mx-auto">
-        <!-- 中身そのまま -->
-        <!-- 省略せずそのまま表示される -->
-        <!-- 文言変更なし -->
-        <!-- OK -->
-        <!-- ↓ -->
-        <!-- （元コードそのまま） -->
-        <!-- ↑ -->
-    </div>
-</section>
-
 <!-- SNS -->
-<section class="section-container text-center border-t border-gray-100">
-    <div class="flex flex-col items-center gap-8">
-        <div class="flex gap-10">
+<section class="section-container text-center">
+    <div class="glass-card">
+        <div class="flex justify-center gap-10 mb-10">
             <a href="https://www.instagram.com/kansai_gurme_alco" target="_blank">
-                <i class="fab fa-instagram text-4xl text-denim"></i>
+                <i class="fab fa-instagram text-4xl"></i>
             </a>
             <a href="https://www.tiktok.com/@kansai_gurme_alco" target="_blank">
                 <i class="fab fa-tiktok text-4xl"></i>
             </a>
         </div>
 
-        <a href="https://www.instagram.com/kansai_gurme_alco"
-           target="_blank"
-           class="btn-sns instagram-btn">
+        <a href="https://www.instagram.com/kansai_gurme_alco" target="_blank" class="btn-sns">
             <i class="fab fa-instagram"></i>
             PRのご相談はこちら
         </a>
 
-        <p class="text-xs text-gray-400 mt-10">
+        <p class="text-xs opacity-60 mt-10">
             実績はまだ多くありません。<br>
             だからこそ、一件一件のご依頼に、<br>
             どこよりも誠実に向き合わせていただきます。
@@ -273,7 +248,7 @@
     </div>
 </section>
 
-<footer class="pb-10 text-center text-[10px] text-gray-300 tracking-widest">
+<footer class="pb-10 text-center text-[10px] opacity-40 tracking-widest">
     &copy; 関西グルメ あるこ
 </footer>
 
