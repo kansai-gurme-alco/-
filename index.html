@@ -46,17 +46,19 @@
     .btn-sns {
       background-color: #1f2a44;
       color: #fff;
-      padding: 0.8rem 1.8rem;
+      padding: 0.9rem 2rem;
       border-radius: 9999px;
-      font-size: 0.9rem;
+      font-size: 0.95rem;
       display: inline-flex;
       align-items: center;
+      justify-content: center;
       gap: 0.5rem;
-      transition: opacity 0.2s;
+      transition: opacity 0.2s, transform 0.2s;
     }
 
     .btn-sns:hover {
       opacity: 0.85;
+      transform: translateY(-2px);
     }
 
     .hero-text {
@@ -68,7 +70,6 @@
 
 <body>
 
-<!-- ヘッダー -->
 <header class="py-10 flex flex-col items-center space-y-4">
   <img src="./image.png" alt="関西グルメ あるこ ロゴ" class="w-40 md:w-48">
 
@@ -81,7 +82,6 @@
   </p>
 </header>
 
-<!-- 自己紹介 -->
 <section class="section">
   <div class="card">
     <h2 class="section-title text-base md:text-lg">自己紹介</h2>
@@ -94,7 +94,6 @@
   </div>
 </section>
 
-<!-- 大事にしていること -->
 <section class="section">
   <div class="card">
     <h2 class="section-title text-base md:text-lg">大事にしていること</h2>
@@ -107,7 +106,6 @@
   </div>
 </section>
 
-<!-- 強み・特徴 -->
 <section class="section">
   <div class="card">
     <h2 class="section-title text-base md:text-lg">強み・特徴</h2>
@@ -118,9 +116,6 @@
       <li>・共同投稿（コラボ投稿）も対応</li>
       <li>・Google、食べログの投稿も対応</li>
       <li>・PR条件はご相談させてください</li>
-      <li class="pl-4 text-gray-500 text-xs">
-        ※基本的には店舗様の条件・ご要望を優先させていただきます
-      </li>
     </ul>
 
     <p class="mt-4 font-bold text-sm md:text-base border-l-4 border-[#1f2a44] pl-4">
@@ -130,7 +125,6 @@
   </div>
 </section>
 
-<!-- 依頼店舗 -->
 <section class="section">
   <div class="card">
     <h2 class="section-title text-base md:text-lg">こんな店舗から依頼を受けています</h2>
@@ -143,7 +137,6 @@
   </div>
 </section>
 
-<!-- なぜ発信しているか -->
 <section class="section">
   <div class="card">
     <h2 class="section-title text-base md:text-lg">なぜ、発信をしているのか？</h2>
@@ -156,22 +149,18 @@
       <p>
         「美味しいのに意外と知られていない」お店を、
         必要としている人にきちんと届けたい。
-        また、知人や家内と「どこのお店がいいかな？」と悩むときの
         情報源を作りたいと考え、発信を始めました。
       </p>
       <p>
-        元々カメラマンを目指していたこともあり、
-        撮影や編集そのものが好きで、楽しみながら投稿を続けています。
-        趣味として続けてきた写真・動画編集の経験を活かし、
+        撮影や編集そのものが好きで、
         店舗様と一緒に魅力を作り上げる発信を心がけています。
       </p>
     </div>
   </div>
 </section>
 
-<!-- SNS -->
 <section class="section">
-  <div class="card text-center space-y-4">
+  <div class="card text-center space-y-6">
     <div class="flex justify-center gap-8">
       <a href="https://www.instagram.com/kansai_gurme_alco" target="_blank">
         <i class="fab fa-instagram text-3xl"></i>
@@ -181,14 +170,15 @@
       </a>
     </div>
 
-    <div class="space-y-1">
-     <a  href="https://ig.me/m/kansai_gurme_alco"  target="_blank"	  rel="noopener noreferrer">
- 　　　 PRのご依頼はこちらから
-　　　</a>
-      <p class="text-xs text-gray-500">
-        ※DMへメッセージお願いいたします
-      </p>
-    </div>
+    <a
+      href="https://ig.me/m/kansai_gurme_alco"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="btn-sns mx-auto w-fit"
+    >
+      <i class="fas fa-envelope"></i>
+      PRのご依頼はこちらから
+    </a>
 
     <p class="text-xs text-gray-500">
       実績はまだ多くありませんが、<br>
@@ -203,4 +193,3 @@
 
 </body>
 </html>
-
