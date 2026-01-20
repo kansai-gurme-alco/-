@@ -46,13 +46,12 @@
     .btn-sns {
       background-color: #1f2a44;
       color: #ffffff;
-      padding: 0.9rem 2rem;
+      padding: 1rem 2.4rem;
       border-radius: 9999px;
       font-size: 0.95rem;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 0.5rem;
       text-decoration: none;
       cursor: pointer;
       transition: opacity 0.2s, transform 0.2s;
@@ -72,7 +71,6 @@
 
 <body>
 
-<!-- ヘッダー -->
 <header class="py-10 flex flex-col items-center space-y-4">
   <img src="./image.png" alt="関西グルメ あるこ ロゴ" class="w-40 md:w-48">
 
@@ -85,7 +83,6 @@
   </p>
 </header>
 
-<!-- 自己紹介 -->
 <section class="section">
   <div class="card">
     <h2 class="section-title text-base md:text-lg">自己紹介</h2>
@@ -98,7 +95,6 @@
   </div>
 </section>
 
-<!-- 大事にしていること -->
 <section class="section">
   <div class="card">
     <h2 class="section-title text-base md:text-lg">大事にしていること</h2>
@@ -111,11 +107,9 @@
   </div>
 </section>
 
-<!-- 強み・特徴 -->
 <section class="section">
   <div class="card">
     <h2 class="section-title text-base md:text-lg">強み・特徴</h2>
-
     <ul class="space-y-2 text-sm md:text-base">
       <li>・リール／フィード投稿どちらも対応</li>
       <li>・TikTokへの投稿も可能</li>
@@ -123,83 +117,44 @@
       <li>・Google、食べログの投稿も対応</li>
       <li>・PR条件はご相談させてください</li>
     </ul>
-
-    <p class="mt-4 font-bold text-sm md:text-base border-l-4 border-[#1f2a44] pl-4">
-      営業職としての経験から「何が伝われば興味を持ってもらえるか」を常に意識し、
-      料理・ジャンル・特徴がサムネイルだけで一目で伝わる設計にこだわっています。
-    </p>
   </div>
 </section>
 
-<!-- 依頼店舗 -->
-<section class="section">
-  <div class="card">
-    <h2 class="section-title text-base md:text-lg">こんな店舗から依頼を受けています</h2>
-    <ul class="space-y-2 text-sm md:text-base">
-      <li>・初めてインフルエンサーPRを検討している</li>
-      <li>・広告感の強い投稿は避けたい</li>
-      <li>・想いやこだわりを丁寧に表現してほしい</li>
-      <li>・柔軟に相談しながら進めたい</li>
-    </ul>
-  </div>
-</section>
-
-<!-- なぜ発信しているか -->
-<section class="section">
-  <div class="card">
-    <h2 class="section-title text-base md:text-lg">なぜ、発信をしているのか？</h2>
-    <div class="space-y-3 text-sm md:text-base">
-      <p>
-        きっかけは、自分自身の「備忘録」でした。
-        営業という仕事柄、会食やランチの機会は多いものの、
-        これまでその食体験を記録していなかったことが始まりです。
-      </p>
-      <p>
-        「美味しいのに意外と知られていない」お店を、
-        必要としている人にきちんと届けたい。
-        情報源を作りたいと考え、発信を始めました。
-      </p>
-      <p>
-        撮影や編集そのものが好きで、
-        店舗様と一緒に魅力を作り上げる発信を心がけています。
-      </p>
-    </div>
-  </div>
-</section>
-
-<!-- SNS & PR -->
 <section class="section">
   <div class="card text-center space-y-6">
+
     <div class="flex justify-center gap-8">
-      <a href="https://www.instagram.com/kansai_gurme_alco" target="_blank" rel="noopener noreferrer">
+      <a href="https://www.instagram.com/kansai_gurme_alco/" target="_blank">
         <i class="fab fa-instagram text-3xl"></i>
       </a>
-      <a href="https://www.tiktok.com/@kansai_gurme_alco" target="_blank" rel="noopener noreferrer">
+      <a href="https://www.tiktok.com/@kansai_gurme_alco" target="_blank">
         <i class="fab fa-tiktok text-3xl"></i>
       </a>
     </div>
 
-  <!-- ★ 最重要：DM導線 -->
-<a
-  href="instagram://user?username=kansai_gurme_alco"
-  onclick="setTimeout(function(){location.href='https://www.instagram.com/kansai_gurme_alco/';},500);"
-  class="btn-sns mx-auto w-fit text-center"
->
-  <div class="flex flex-col items-center leading-tight">
-    <span class="flex items-center gap-2">
-      <i class="fab fa-instagram"></i>
-      PRのご依頼はこちらから
-    </span>
-    <span class="text-[10px] opacity-80 mt-1">
-      ※InstaのDMまでお願いします
-    </span>
-  </div>
-</a>
-    
+    <!-- ★ DM直リンク（最重要） -->
+    <a
+      href="https://www.instagram.com/direct/t/kansai_gurme_alco/"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="btn-sns mx-auto w-fit"
+    >
+      <div class="flex flex-col items-center leading-tight">
+        <span class="flex items-center gap-2">
+          <i class="fas fa-envelope"></i>
+          PRのご依頼はこちらから
+        </span>
+        <span class="text-[10px] opacity-80 mt-1">
+          ※InstagramのDM画面が開きます
+        </span>
+      </div>
+    </a>
+
     <p class="text-xs text-gray-500">
       実績はまだ多くありませんが、<br>
       だからこそ一件一件、誠実に向き合わせていただきます。
     </p>
+
   </div>
 </section>
 
@@ -209,8 +164,3 @@
 
 </body>
 </html>
-
-
-
-
-
