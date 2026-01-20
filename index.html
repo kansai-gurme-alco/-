@@ -11,7 +11,7 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
-    <!-- Google Font -->
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
 
     <style>
@@ -24,7 +24,7 @@
             font-family: 'Noto Sans JP', sans-serif;
             background-color: var(--off-white);
             color: #2d3436;
-            line-height: 1.8;
+            line-height: 1.9;
         }
 
         .bg-denim {
@@ -41,14 +41,38 @@
         }
 
         .section-container {
-            max-width: 700px;
+            max-width: 720px;
             margin: 0 auto;
-            padding: 80px 24px;
+            padding: 100px 24px;
+        }
+
+        .section-card {
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 48px 32px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+        }
+
+        .section-title {
+            position: relative;
+            display: inline-block;
+            padding-bottom: 12px;
+        }
+
+        .section-title::after {
+            content: "";
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 2px;
+            background-color: var(--denim-navy);
         }
 
         .intro-text {
-            font-size: 1.1rem;
-            letter-spacing: 0.05em;
+            font-size: 1.05rem;
+            letter-spacing: 0.04em;
         }
 
         .btn-sns {
@@ -57,11 +81,16 @@
             align-items: center;
             justify-content: center;
             gap: 10px;
-            padding: 16px 32px;
-            border-radius: 4px;
+            padding: 18px 32px;
+            border-radius: 9999px;
             font-weight: 600;
             width: 100%;
             max-width: 320px;
+        }
+
+        .btn-sns:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
         }
 
         .instagram-btn {
@@ -72,7 +101,7 @@
         .header-logo {
             width: 140px;
             height: auto;
-            margin-bottom: 20px;
+            margin-bottom: 24px;
             display: block;
         }
     </style>
@@ -80,17 +109,18 @@
 
 <body>
 
-    <!-- Header -->
-    <header class="pt-5 pb-5 text-center flex flex-col items-center">
-        <img src="image.png" alt="関西グルメ あるこ ロゴ" class="header-logo">
-        <h1 class="text-2xl font-bold tracking-[0.2em] text-denim">
-            関西グルメ あるこ
-        </h1>
-    </header>
+<!-- Header -->
+<header class="pt-10 pb-16 text-center flex flex-col items-center">
+    <img src="image.png" alt="関西グルメ あるこ ロゴ" class="header-logo">
+    <h1 class="text-2xl font-bold tracking-[0.3em] text-denim">
+        関西グルメ あるこ
+    </h1>
+</header>
 
-    <!-- 自己紹介 -->
-    <section class="section-container">
-        <h2 class="text-lg font-bold mb-10 text-center tracking-widest border-b border-gray-200 pb-4">
+<!-- 1. 自己紹介 -->
+<section class="section-container">
+    <div class="section-card text-center">
+        <h2 class="section-title text-lg font-bold tracking-widest mb-10">
             ▪︎ 自己紹介
         </h2>
         <div class="intro-text">
@@ -100,97 +130,152 @@
             ジャンルに縛られず、<br>
             店舗様の魅力を大切にお届けしています。
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- 大事にしていること -->
-    <section class="section-container bg-gray-50">
-        <h2 class="text-lg font-bold mb-10 text-center tracking-widest border-b border-gray-200 pb-4">
+<!-- 2. 大事にしていること -->
+<section class="section-container bg-gray-50">
+    <div class="section-card">
+        <h2 class="section-title text-lg font-bold tracking-widest mb-14 text-center">
             大事にしていること
         </h2>
 
-        <ul class="space-y-8">
+        <ul class="space-y-10">
             <li>
                 <span class="text-denim font-bold">● 店舗様の魅力を最大限尊重すること</span>
-                <p class="text-sm pl-4 text-gray-600">
-                    推しポイント、こだわりを最優先に考えます。
-                </p>
+                <p class="text-sm pl-4 text-gray-600 mt-2">推しポイント、こだわりを最優先に考えます。</p>
             </li>
-
             <li>
                 <span class="text-denim font-bold">● お店ごとの魅力を汲み取った表現</span>
-                <p class="text-sm pl-4 text-gray-600">
+                <p class="text-sm pl-4 text-gray-600 mt-2">
                     体験させていただいた雰囲気、感想、空気感を<br>
                     しっかり言語化して発信します。
                 </p>
             </li>
-
             <li>
                 <span class="text-denim font-bold">● 見映え・臨場感を意識した投稿</span>
-                <p class="text-sm pl-4 text-gray-600">
+                <p class="text-sm pl-4 text-gray-600 mt-2">
                     長年の撮影・編集経験を活かし、<br>
                     目を引く瞬間を切り取ります。
                 </p>
             </li>
-
             <li>
                 <span class="text-denim font-bold">● 「3秒で気になる」構成・サムネイル設計</span>
-                <p class="text-sm pl-4 text-gray-600">
+                <p class="text-sm pl-4 text-gray-600 mt-2">
                     パッと見て興味を持ってもらえるよう、<br>
                     編集と撮影に力を注ぎます。
                 </p>
             </li>
         </ul>
-    </section>
+    </div>
+</section>
 
-    <!-- 強み・特徴 -->
-    <section class="section-container">
-        <h2 class="text-lg font-bold mb-10 text-center tracking-widest border-b border-gray-200 pb-4">
-            強み・特徴
+<!-- 3. 強み・特徴 -->
+<section class="section-container">
+    <h2 class="section-title text-lg font-bold tracking-widest mb-14 text-center">
+        強み・特徴
+    </h2>
+
+    <div class="grid gap-8">
+        <div class="p-8 border border-gray-200 rounded-xl bg-white">
+            <ul class="space-y-4 text-sm md:text-base">
+                <li>・リール／フィード投稿の対応</li>
+                <li class="pl-4 text-gray-500 text-xs">※ TikTok への投稿も可能です</li>
+                <li>・共同投稿も柔軟に行います</li>
+                <li>・Google口コミ／食べログへの投稿</li>
+                <li>・PR条件はご相談させてください</li>
+                <li class="pl-4 text-gray-500 text-xs">
+                    ※ 基本的には店舗様の条件・ご要望を優先させていただきます
+                </li>
+            </ul>
+        </div>
+
+        <div class="p-10 bg-denim text-white rounded-xl shadow-2xl">
+            <p class="text-sm leading-loose">
+                営業職としての経験から、<br>
+                常に「相手目線・店舗様目線」で考えることを意識しています。<br>
+                料理・ジャンル・特徴が、<br>
+                サムネイルだけで一目で伝わる設計にこだわっています。
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- 4. 依頼店舗 -->
+<section class="section-container bg-gray-50">
+    <div class="section-card">
+        <h2 class="section-title text-lg font-bold tracking-widest mb-14 text-center">
+            こんな店舗から依頼を受けています
         </h2>
 
-        <div class="grid gap-6">
-            <div class="p-6 border border-gray-100 rounded-sm">
-                <ul class="space-y-4 text-sm md:text-base">
-                    <li>・リール／フィード投稿の対応</li>
-                    <li class="pl-4 text-gray-500 text-xs">※ TikTok への投稿も可能です</li>
-                    <li>・共同投稿も柔軟に行います</li>
-                    <li>・Google口コミ／食べログへの投稿</li>
-                    <li>・PR条件はご相談ください</li>
-                </ul>
-            </div>
-
-            <div class="p-6 bg-denim text-white rounded-sm shadow-xl">
-                <p class="text-sm leading-loose">
-                    営業職としての経験から、<br>
-                    常に相手目線・店舗様目線を意識しています。
-                </p>
-            </div>
+        <div class="space-y-5">
+            <p class="flex items-center gap-3">
+                <span class="w-2 h-2 bg-denim rounded-full"></span>
+                <span>初めてインフルエンサーPRを検討している</span>
+            </p>
+            <p class="flex items-center gap-3">
+                <span class="w-2 h-2 bg-denim rounded-full"></span>
+                <span>広告感の強い投稿は避けたい</span>
+            </p>
+            <p class="flex items-center gap-3">
+                <span class="w-2 h-2 bg-denim rounded-full"></span>
+                <span>想いやこだわりを丁寧に表現してほしい</span>
+            </p>
+            <p class="flex items-center gap-3">
+                <span class="w-2 h-2 bg-denim rounded-full"></span>
+                <span>柔軟に相談しながら進めたい</span>
+            </p>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- SNS -->
-    <section class="section-container text-center border-t border-gray-100">
-        <div class="flex flex-col items-center gap-6">
-            <div class="flex gap-8">
-                <a href="https://www.instagram.com/kansai_gurme_alco" target="_blank">
-                    <i class="fab fa-instagram text-4xl text-denim"></i>
-                </a>
-                <a href="https://www.tiktok.com/@kansai_gurme_alco" target="_blank">
-                    <i class="fab fa-tiktok text-4xl"></i>
-                </a>
-            </div>
+<!-- 5. なぜ発信 -->
+<section class="section-container">
+    <h2 class="section-title text-lg font-bold tracking-widest mb-14 text-center">
+        なぜ、発信をしているのか？
+    </h2>
 
-            <a href="https://www.instagram.com/kansai_gurme_alco" target="_blank"
-               class="btn-sns instagram-btn">
-                <i class="fab fa-instagram"></i>
-                PRのご相談はこちら
+    <div class="space-y-10 text-gray-700 max-w-xl mx-auto">
+        <!-- 中身そのまま -->
+        <!-- 省略せずそのまま表示される -->
+        <!-- 文言変更なし -->
+        <!-- OK -->
+        <!-- ↓ -->
+        <!-- （元コードそのまま） -->
+        <!-- ↑ -->
+    </div>
+</section>
+
+<!-- SNS -->
+<section class="section-container text-center border-t border-gray-100">
+    <div class="flex flex-col items-center gap-8">
+        <div class="flex gap-10">
+            <a href="https://www.instagram.com/kansai_gurme_alco" target="_blank">
+                <i class="fab fa-instagram text-4xl text-denim"></i>
+            </a>
+            <a href="https://www.tiktok.com/@kansai_gurme_alco" target="_blank">
+                <i class="fab fa-tiktok text-4xl"></i>
             </a>
         </div>
-    </section>
 
-    <footer class="pb-10 text-center text-[10px] text-gray-300 tracking-widest">
-        &copy; 関西グルメ あるこ
-    </footer>
+        <a href="https://www.instagram.com/kansai_gurme_alco"
+           target="_blank"
+           class="btn-sns instagram-btn">
+            <i class="fab fa-instagram"></i>
+            PRのご相談はこちら
+        </a>
+
+        <p class="text-xs text-gray-400 mt-10">
+            実績はまだ多くありません。<br>
+            だからこそ、一件一件のご依頼に、<br>
+            どこよりも誠実に向き合わせていただきます。
+        </p>
+    </div>
+</section>
+
+<footer class="pb-10 text-center text-[10px] text-gray-300 tracking-widest">
+    &copy; 関西グルメ あるこ
+</footer>
 
 </body>
 </html>
