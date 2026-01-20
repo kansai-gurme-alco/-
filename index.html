@@ -1,256 +1,186 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>関西グルメ あるこ</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>関西グルメ あるこ｜PR・店舗紹介</title>
 
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
 
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <!-- FontAwesome -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+  />
 
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      color: #1f2a44; /* 紺色 */
+      background-image: url("https://images.unsplash.com/photo-1542060748-10c28b62716c");
+      background-size: cover;
+      background-attachment: fixed;
+      background-position: center;
+    }
 
-    <style>
-        :root {
-            --denim-navy: #1b2e4b;
-        }
+    .card {
+      background: rgba(255, 255, 255, 0.78);
+      backdrop-filter: blur(6px);
+      border-radius: 14px;
+      padding: 2rem 1.5rem;
+    }
 
-        body {
-            font-family: 'Noto Sans JP', sans-serif;
-            color: var(--denim-navy);
-            line-height: 1.9;
-            background-color: #f4f6f8;
-            background-image: url("https://www.transparenttextures.com/patterns/denim.png");
-        }
+    .section {
+      max-width: 900px;
+      margin: 2.5rem auto;
+      padding: 0 1rem;
+    }
 
-        .section-container {
-            max-width: 760px;
-            margin: 0 auto;
-            padding: 96px 20px;
-        }
+    h2 {
+      letter-spacing: 0.15em;
+    }
 
-        .glass-card {
-            background: rgba(255, 255, 255, 0.82);
-            backdrop-filter: blur(6px);
-            border-radius: 18px;
-            padding: 48px 36px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
-        }
+    .btn-sns {
+      background-color: #1f2a44;
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border-radius: 9999px;
+      font-size: 0.9rem;
+      transition: opacity 0.2s;
+    }
 
-        .section-title {
-            letter-spacing: 0.25em;
-            position: relative;
-            padding-bottom: 14px;
-            display: inline-block;
-        }
-
-        .section-title::after {
-            content: "";
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 44px;
-            height: 2px;
-            background-color: var(--denim-navy);
-        }
-
-        .btn-sns {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            padding: 18px 36px;
-            border-radius: 9999px;
-            background-color: var(--denim-navy);
-            color: #ffffff;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-
-        .btn-sns:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 12px 24px rgba(0,0,0,0.2);
-        }
-
-        .header-logo {
-            width: 140px;
-            margin-bottom: 24px;
-        }
-    </style>
+    .btn-sns:hover {
+      opacity: 0.85;
+    }
+  </style>
 </head>
 
 <body>
 
-<!-- Header -->
-<header class="pt-16 pb-24 text-center flex flex-col items-center">
-    <img src="image.png" alt="関西グルメ あるこ ロゴ" class="header-logo">
-    <h1 class="text-2xl font-bold tracking-[0.35em]">
-        関西グルメ あるこ
-    </h1>
-</header>
+  <!-- Hero -->
+  <section class="section">
+    <div class="card text-center space-y-4">
+      <h1 class="text-2xl font-bold tracking-widest">関西グルメ あるこ</h1>
+      <p class="text-sm leading-relaxed">
+        大阪を中心に、<br />
+        「実際に行きたくなる」飲食店を紹介しています。
+      </p>
+    </div>
+  </section>
 
-<!-- 自己紹介 -->
-<section class="section-container">
-    <div class="glass-card text-center">
-        <h2 class="section-title text-lg font-bold mb-12">▪︎ 自己紹介</h2>
+  <!-- 強み・特徴 -->
+  <section class="section">
+    <div class="card space-y-6">
+      <h2 class="text-lg font-bold text-center border-b border-gray-200 pb-3">
+        強み・特徴
+      </h2>
+
+      <div class="space-y-3 text-sm">
+        <p>・カメラ好きの目線で、料理が一番美味しく見える瞬間を切り取ります</p>
+        <p>・リール／フィードどちらも対応可能です</p>
+        <p>・過度な演出はせず、実際の雰囲気を大切にしています</p>
+      </div>
+
+      <p class="mt-6 font-bold border-l-4 border-[#1f2a44] pl-4 text-sm leading-relaxed">
+        営業職として数多くの提案・商談を経験してきたからこそ、<br />
+        「何が一瞬で伝われば、人は興味を持つのか」を常に意識しています。<br />
+        料理・ジャンル・特徴が、サムネイルだけで一目で伝わる設計にこだわっています。
+      </p>
+    </div>
+  </section>
+
+  <!-- 依頼される店舗 -->
+  <section class="section">
+    <div class="card space-y-6">
+      <h2 class="text-lg font-bold text-center border-b border-gray-200 pb-3">
+        こんな店舗からご依頼を受けています
+      </h2>
+
+      <div class="space-y-3 text-sm">
+        <p class="flex items-center gap-3">
+          <span class="w-1.5 h-1.5 bg-[#1f2a44] rounded-full"></span>
+          初めてインフルエンサーPRを検討している
+        </p>
+        <p class="flex items-center gap-3">
+          <span class="w-1.5 h-1.5 bg-[#1f2a44] rounded-full"></span>
+          広告感の強い投稿は避けたい
+        </p>
+        <p class="flex items-center gap-3">
+          <span class="w-1.5 h-1.5 bg-[#1f2a44] rounded-full"></span>
+          お店の想いやこだわりを丁寧に伝えたい
+        </p>
+        <p class="flex items-center gap-3">
+          <span class="w-1.5 h-1.5 bg-[#1f2a44] rounded-full"></span>
+          柔軟に相談しながら進めたい
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- なぜ発信しているか -->
+  <section class="section">
+    <div class="card space-y-6">
+      <h2 class="text-lg font-bold text-center border-b border-gray-200 pb-3">
+        なぜ、発信をしているのか？
+      </h2>
+
+      <div class="space-y-4 text-sm leading-relaxed">
         <p>
-            関西を歩き回る営業マンが、<br>
-            関西のグルメ情報をInstagram・TikTokにて発信しています。<br><br>
-            居酒屋／カフェ／手土産／スイーツなど、<br>
-            ジャンルに縛られず、<br>
-            店舗様の魅力を大切にお届けしています。
+          きっかけは、自分自身の「備忘録」でした。<br />
+          営業という仕事柄、会食やランチの機会は多いものの、<br />
+          素晴らしい食体験を記録に残してこなかったことに気づきました。
         </p>
+
+        <p>
+          「美味しいのに、意外と知られていない」<br />
+          そんなお店を、もっと多くの人に知ってほしい。<br />
+          次のお店選びで、真っ先に思い出してもらえる存在を目指しています。
+        </p>
+
+        <p>
+          元々、撮影と編集が純粋に好きで、<br />
+          趣味として続けてきた写真・動画の経験を活かしています。
+        </p>
+
+        <p class="font-bold border-l-4 border-[#1f2a44] pl-4 mt-6">
+          店舗様と一緒に「伝わる発信」を作ることを大切にしています。
+        </p>
+      </div>
     </div>
-</section>
+  </section>
 
-<!-- 大事にしていること -->
-<section class="section-container">
-    <div class="glass-card">
-        <h2 class="section-title text-lg font-bold mb-14 text-center">大事にしていること</h2>
-        <ul class="space-y-10">
-            <li>
-                <p class="font-bold">● 店舗様の魅力を最大限尊重すること</p>
-                <p class="text-sm mt-2">推しポイント、こだわりを最優先に考えます。</p>
-            </li>
-            <li>
-                <p class="font-bold">● お店ごとの魅力を汲み取った表現</p>
-                <p class="text-sm mt-2">
-                    体験させていただいた雰囲気、感想、空気感を<br>
-                    しっかり言語化して発信します。
-                </p>
-            </li>
-            <li>
-                <p class="font-bold">● 見映え・臨場感を意識した投稿</p>
-                <p class="text-sm mt-2">
-                    長年の撮影・編集経験を活かし、<br>
-                    目を引く瞬間を切り取ります。
-                </p>
-            </li>
-            <li>
-                <p class="font-bold">● 「3秒で気になる」構成・サムネイル設計</p>
-                <p class="text-sm mt-2">
-                    パッと見て興味を持ってもらえるよう、<br>
-                    編集と撮影に力を注ぎます。
-                </p>
-            </li>
-        </ul>
-    </div>
-</section>
-
-<!-- 強み・特徴 -->
-<section class="section-container">
-    <div class="grid gap-10 md:grid-cols-2">
-        <div class="glass-card">
-            <h2 class="section-title text-lg font-bold mb-10 text-center">強み・特徴</h2>
-            <ul class="space-y-4 text-sm">
-                <li>・リール／フィード投稿の対応</li>
-                <li class="text-xs opacity-70">※ TikTok への投稿も可能です</li>
-                <li>・共同投稿も柔軟に行います</li>
-                <li>・Google口コミ／食べログへの投稿</li>
-                <li>・PR条件はご相談させてください</li>
-                <li class="text-xs opacity-70">
-                    ※ 基本的には店舗様の条件・ご要望を優先させていただきます
-                </li>
-            </ul>
-        </div>
-
-        <div class="glass-card">
-            <p class="text-sm leading-loose">
-                営業職としての経験から、<br>
-                常に「相手目線・店舗様目線」で考えることを意識しています。<br>
-                料理・ジャンル・特徴が、<br>
-                サムネイルだけで一目で伝わる設計にこだわっています。
-            </p>
-        </div>
-    </div>
-</section>
-
-<!-- 依頼店舗 -->
-<section class="section-container">
-    <div class="glass-card">
-        <h2 class="section-title text-lg font-bold mb-12 text-center">
-            こんな店舗から依頼を受けています
-        </h2>
-        <div class="space-y-4">
-            <p>・初めてインフルエンサーPRを検討している</p>
-            <p>・広告感の強い投稿は避けたい</p>
-            <p>・想いやこだわりを丁寧に表現してほしい</p>
-            <p>・柔軟に相談しながら進めたい</p>
-        </div>
-    </div>
-</section>
-
-<!-- なぜ発信 -->
-<section class="section-container">
-    <div class="glass-card">
-        <h2 class="section-title text-lg font-bold mb-12 text-center">
-            なぜ、発信をしているのか？
-        </h2>
-
-        <div class="space-y-8 text-sm">
-            <p>
-                きっかけは、自分自身の「備忘録」でした。<br>
-                営業という仕事柄、会食やランチの機会は多いのですが、<br>
-                せっかくの素晴らしい食体験を、<br>
-                これまで記録に残してこなかったことに気づきました。
-            </p>
-
-            <p>
-                「美味しいのに、意外と知られていない」<br>
-                そんなお店が世の中にはたくさんあります。<br>
-                そういった素敵なお店をもっと多くの人に知ってほしい。<br>
-                そして、知人や家族と「次どこ行く？」と悩むときに、<br>
-                真っ先に開いてもらえるような情報源を作りたいと考え、始めました。
-            </p>
-
-            <p>
-                元々カメラマンを目指していたほど、撮影と編集が純粋に好きです。<br>
-                趣味として続けてきた写真や動画のスキル、<br>
-                そこで培った「興味を持ってもらう」視覚的なアプローチは、<br>
-                一般的な方よりは少しだけ得意だと思っております。
-            </p>
-
-            <p class="font-bold border-l-4 pl-4">
-                店舗様と作り上げる発信を心がけています。<br>
-                ぜひ一度、貴店の魅力をご紹介させてください。
-            </p>
-        </div>
-    </div>
-</section>
-
-<!-- SNS -->
-<section class="section-container text-center">
-    <div class="glass-card">
-        <div class="flex justify-center gap-10 mb-10">
-            <a href="https://www.instagram.com/kansai_gurme_alco" target="_blank">
-                <i class="fab fa-instagram text-4xl"></i>
-            </a>
-            <a href="https://www.tiktok.com/@kansai_gurme_alco" target="_blank">
-                <i class="fab fa-tiktok text-4xl"></i>
-            </a>
-        </div>
-
-        <a href="https://www.instagram.com/kansai_gurme_alco" target="_blank" class="btn-sns">
-            <i class="fab fa-instagram"></i>
-            PRのご相談はこちら
+  <!-- SNS & Contact -->
+  <section class="section">
+    <div class="card text-center space-y-6">
+      <div class="flex justify-center gap-8">
+        <a href="https://www.instagram.com/kansai_gurme_alco" target="_blank">
+          <i class="fab fa-instagram text-3xl"></i>
         </a>
+        <a href="https://www.tiktok.com/@kansai_gurme_alco" target="_blank">
+          <i class="fab fa-tiktok text-3xl"></i>
+        </a>
+      </div>
 
-        <p class="text-xs opacity-60 mt-10">
-            実績はまだ多くありません。<br>
-            だからこそ、一件一件のご依頼に、<br>
-            どこよりも誠実に向き合わせていただきます。
-        </p>
+      <a
+        href="https://www.instagram.com/kansai_gurme_alco"
+        target="_blank"
+        class="btn-sns inline-flex items-center gap-2"
+      >
+        <i class="fab fa-instagram"></i>
+        PRのご相談はこちら
+      </a>
+
+      <p class="text-xs text-gray-500 leading-relaxed">
+        実績はまだ多くありません。<br />
+        だからこそ、一件一件のご依頼に<br />
+        誠実に向き合わせていただきます。
+      </p>
     </div>
-</section>
+  </section>
 
-<footer class="pb-10 text-center text-[10px] opacity-40 tracking-widest">
+  <footer class="text-center text-[10px] text-gray-300 mt-10 pb-6 tracking-widest">
     &copy; 関西グルメ あるこ
-</footer>
+  </footer>
 
 </body>
 </html>
