@@ -54,6 +54,7 @@
       justify-content: center;
       gap: 0.5rem;
       transition: opacity 0.2s, transform 0.2s;
+      text-decoration: none;
     }
 
     .btn-sns:hover {
@@ -83,93 +84,39 @@
 </header>
 
 <section class="section">
-  <div class="card">
-    <h2 class="section-title text-base md:text-lg">自己紹介</h2>
-    <p class="text-sm md:text-base">
-      関西を歩き回る営業マンが、関西のグルメ情報を
-      Instagram・TikTokを中心に発信しています。<br>
-      居酒屋・カフェ・スイーツなどジャンルに縛られず、
-      店舗様の魅力が自然に伝わる投稿を心がけています。
-    </p>
-  </div>
-</section>
-
-<section class="section">
-  <div class="card">
-    <h2 class="section-title text-base md:text-lg">大事にしていること</h2>
-    <ul class="space-y-2 text-sm md:text-base">
-      <li>・店舗様の想いやこだわりを最優先にすること</li>
-      <li>・広告感を抑え、自然に伝わる表現にすること</li>
-      <li>・実際の雰囲気や体験を大切にした発信</li>
-      <li>・「行ってみたい」と思ってもらえる構成</li>
-    </ul>
-  </div>
-</section>
-
-<section class="section">
-  <div class="card">
-    <h2 class="section-title text-base md:text-lg">強み・特徴</h2>
-    <ul class="space-y-2 text-sm md:text-base">
-      <li>・リール／フィード投稿どちらも対応</li>
-      <li>・TikTokへの投稿も可能</li>
-      <li>・共同投稿（コラボ投稿）も対応</li>
-      <li>・Google、食べログの投稿も対応</li>
-      <li>・PR条件はご相談させてください</li>
-    </ul>
-  </div>
-</section>
-
-<section class="section">
   <div class="card text-center space-y-6">
+
     <div class="flex justify-center gap-8">
-      <a href="https://www.instagram.com/kansai_gurme_alco" target="_blank">
+      <a href="https://www.instagram.com/kansai_gurme_alco" target="_blank" rel="noopener noreferrer">
         <i class="fab fa-instagram text-3xl"></i>
       </a>
-      <a href="https://www.tiktok.com/@kansai_gurme_alco" target="_blank">
+      <a href="https://www.tiktok.com/@kansai_gurme_alco" target="_blank" rel="noopener noreferrer">
         <i class="fab fa-tiktok text-3xl"></i>
       </a>
     </div>
 
-    <!-- PRボタン（JS制御） -->
-    <button
-      onclick="openInstagramDM()"
+    <!-- ★ JSなし・最安定DMボタン -->
+    <a
+      href="https://www.instagram.com/direct/new/?username=kansai_gurme_alco"
+      target="_blank"
+      rel="noopener noreferrer"
       class="btn-sns mx-auto w-fit"
     >
       <i class="fas fa-envelope"></i>
       PRのご依頼はこちらから
-    </button>
+    </a>
 
     <p class="text-xs text-gray-500">
       実績はまだ多くありませんが、<br>
       だからこそ一件一件、誠実に向き合わせていただきます。
     </p>
+
   </div>
 </section>
 
 <footer class="text-center text-[10px] text-gray-300 mt-10 pb-6 tracking-widest">
   &copy; 関西グルメ あるこ
 </footer>
-
-<!-- ★ ここがポイント：bodyの一番下にJSを差し込み -->
-<script>
-  function openInstagramDM() {
-    const username = "kansai_gurme_alco";
-
-    // Instagramアプリ（DM直）
-    const appUrl = `instagram://direct?username=${username}`;
-
-    // 外部ブラウザ用
-    const webUrl = `https://ig.me/m/${username}`;
-
-    // まずアプリを試す
-    window.location.href = appUrl;
-
-    // 無理なら外部ブラウザ
-    setTimeout(() => {
-      window.open(webUrl, "_blank", "noopener,noreferrer");
-    }, 800);
-  }
-</script>
 
 </body>
 </html>
