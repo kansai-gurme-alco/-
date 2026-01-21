@@ -118,16 +118,31 @@ border-style: solid;
 border-color: transparent transparent rgba(255,255,255,0.85) transparent;
 }
 
-/* カウントアップ数字のスタイル */
+/* カウントアップ数字のスタイル - 1行で表示 */
+.counter-container {
+display: flex;
+align-items: center;
+justify-content: center;
+gap: 0.3rem;
+flex-wrap: nowrap;
+margin: 1rem 0;
+}
+
 .counter-number {
-font-size: 2.5rem;
+font-size: 1.8rem;
 font-weight: 900;
 background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
 -webkit-background-clip: text;
 -webkit-text-fill-color: transparent;
 background-clip: text;
 display: inline-block;
-margin: 0.5rem 0;
+line-height: 1;
+}
+
+.counter-text {
+font-size: 1rem;
+color: #1f2a44;
+font-weight: 600;
 }
 
 /* SNSアイコングリッド */
@@ -166,6 +181,47 @@ margin-bottom: 0.5rem;
 font-size: 0.85rem;
 font-weight: 600;
 color: #1f2a44;
+}
+
+/* メディアグリッド（2x2） */
+.media-grid {
+display: grid;
+grid-template-columns: repeat(2, 1fr);
+gap: 1rem;
+margin: 1.5rem 0;
+}
+
+.media-item {
+display: flex;
+flex-direction: column;
+align-items: center;
+background: rgba(255, 255, 255, 0.9);
+border-radius: 12px;
+padding: 1rem;
+box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.media-item:hover {
+transform: translateY(-4px);
+box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.media-item-title {
+font-size: 0.75rem;
+font-weight: 700;
+color: #1f2a44;
+margin-bottom: 0.5rem;
+text-align: center;
+}
+
+.media-item img,
+.media-item video {
+width: 100%;
+height: auto;
+max-height: 200px;
+object-fit: cover;
+border-radius: 8px;
 }
 
 /* ロゴアニメーション */
@@ -250,7 +306,7 @@ Instagram・TikTokを中心に発信しています。<br>
 <h2 class="section-title text-base md:text-lg">PR対応について</h2>
 
 <p class="text-center text-sm md:text-base mb-4" style="font-weight: 600; color: #1f2a44;">
-投稿媒体は<strong>Instagram、TikTok、Google、食べログ</strong>にて対応可能です。
+以下、投稿媒体にてPR対応可能です。
 </p>
 
 <div class="sns-icon-grid">
@@ -267,14 +323,13 @@ Instagram・TikTokを中心に発信しています。<br>
 <span>Google</span>
 </div>
 <div class="sns-icon-item">
-<img src="https://tblg.k-img.com/images/smartphone/icon_tabelog_192.png" alt="食べログ">
+<img src="https://www.san-an.co.jp/dcms_media/image/tabelog_con1.png" alt="食べログ">
 <span>食べログ</span>
 </div>
 </div>
 
 <ul class="space-y-2 text-sm md:text-base animated-list mt-4">
 <li>・リール／フィード投稿どちらも対応可能です</li>
-<li>・TikTokへの投稿も可能です</li>
 <li>・共同投稿(コラボ)も対応可能です</li>
 <li>・PR条件はご相談させてください</li>
 <li class="pl-4 text-gray-500 text-xs">
@@ -287,10 +342,12 @@ Instagram・TikTokを中心に発信しています。<br>
 <p class="text-sm md:text-base text-center">
 instaとtiktokにて投稿後約10日間で...
 </p>
-<div class="counter-number" id="counterNumber">2000</div>
-<p class="text-sm md:text-base text-center">
-〜<span class="counter-number" style="font-size: 2rem;" id="counterNumberMax">4000</span>人
-</p>
+<div class="counter-container">
+<span class="counter-number" id="counterNumber">2000</span>
+<span class="counter-text">〜</span>
+<span class="counter-number" id="counterNumberMax">4000</span>
+<span class="counter-text">人</span>
+</div>
 <p class="text-xs text-gray-600 text-center mt-2">
 に閲覧されています
 </p>
@@ -310,6 +367,38 @@ instaとtiktokにて投稿後約10日間で...
 営業職としての経験から「何が伝われば興味を持ってもらえるか」を常に意識し、
 料理・ジャンル・特徴がサムネイルだけで一目で伝わる設計にこだわっています。
 </p>
+</div>
+</section>
+
+<section class="section">
+<div class="card">
+<h2 class="section-title text-base md:text-lg">こだわり</h2>
+<p class="text-sm md:text-base mb-4">
+カメラマンを目指していた過去の経験から、写真・動画撮影、編集は好きで得意な方です。<br>
+美味しく映る構図や光の加減、サムネイルも一目で理解出来るをモットーに手を抜かずに作成しています。
+</p>
+
+<div class="media-grid">
+<div class="media-item">
+<div class="media-item-title">【料理写真①】</div>
+<img src="./image1.png" alt="料理写真1">
+</div>
+<div class="media-item">
+<div class="media-item-title">【料理写真②】</div>
+<img src="./image2.png" alt="料理写真2">
+</div>
+<div class="media-item">
+<div class="media-item-title">【サムネイル】</div>
+<img src="./image3.png" alt="サムネイル">
+</div>
+<div class="media-item">
+<div class="media-item-title">【リール】</div>
+<video controls playsinline loop muted>
+<source src="./image4.mp4" type="video/mp4">
+お使いのブラウザは動画再生に対応していません。
+</video>
+</div>
+</div>
 </div>
 </section>
 
