@@ -1,229 +1,458 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>関西グルメ あるこ｜店舗PR</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>関西グルメ あるこ｜店舗PR</title>
 
-  <!-- Tailwind CSS -->
-  <script src="https://cdn.tailwindcss.com"></script>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-  <style>
-    body {
-      color: #1f2a44;
-      background-image: url("./denim-bg.jpg");
-      background-size: cover;
-      background-position: center;
-      background-attachment: fixed;
-      line-height: 1.8;
-    }
+<style>
+body {
+color: #1f2a44;
+background-image: url("./denim-bg.jpg");
+background-size: cover;
+background-position: center;
+background-attachment: fixed;
+line-height: 1.8;
+}
 
-    .section {
-      max-width: 900px;
-      margin: 1.6rem auto;
-      padding: 0 1rem;
-    }
+.section {
+max-width: 900px;
+margin: 1.6rem auto;
+padding: 0 1rem;
+opacity: 0;
+transform: translateY(30px);
+transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
 
-    .card {
-      background: rgba(255, 255, 255, 0.78);
-      backdrop-filter: blur(6px);
-      border-radius: 14px;
-      padding: 1.5rem 1.4rem;
-    }
+.section.visible {
+opacity: 1;
+transform: translateY(0);
+}
 
-    .section-title {
-      text-align: center;
-      font-weight: 850;
-      letter-spacing: 0.15em;
-      border-bottom: 1px solid #e5e7eb;
-      padding-bottom: 0.5rem;
-      margin-bottom: 1.2rem;
-    }
+.card {
+background: rgba(255, 255, 255, 0.78);
+backdrop-filter: blur(6px);
+border-radius: 14px;
+padding: 1.5rem 1.4rem;
+box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
 
-    .btn-sns, .btn-dm {
-      background-color: #1f2a44;
-      color: #fff;
-      padding: 0.9rem 2rem;
-      border-radius: 9999px;
-      font-size: 0.95rem;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.5rem;
-      transition: opacity 0.2s, transform 0.2s;
-      text-decoration: none;
-      flex-direction: column;
-    }
+.card:hover {
+transform: translateY(-4px);
+box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
 
-    .btn-sns:hover, .btn-dm:hover {
-      opacity: 0.85;
-      transform: translateY(-2px);
-    }
+.section-title {
+text-align: center;
+font-weight: 850;
+letter-spacing: 0.15em;
+border-bottom: 1px solid #e5e7eb;
+padding-bottom: 0.5rem;
+margin-bottom: 1.2rem;
+}
 
-    .hero-text {
-      color: #ffffff;
-      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
-    }
+.btn-sns, .btn-dm {
+background-color: #1f2a44;
+color: #fff;
+padding: 0.9rem 2rem;
+border-radius: 9999px;
+font-size: 0.95rem;
+display: inline-flex;
+align-items: center;
+justify-content: center;
+gap: 0.5rem;
+transition: opacity 0.2s, transform 0.2s;
+text-decoration: none;
+flex-direction: column;
+}
 
-    /* 吹き出しデザイン */
-    .speech-bubble {
-      position: relative;
-      background: rgba(255,255,255,0.85);
-      color: #1f2a44;
-      padding: 1rem 1.2rem;
-      border-radius: 14px;
-      max-width: 520px;
-      margin: 1.8rem auto 0 auto;
-      font-weight: 500;
-    }
+.btn-sns:hover, .btn-dm:hover {
+opacity: 0.85;
+transform: translateY(-2px);
+}
 
-    .speech-bubble::after {
-      content: "";
-      position: absolute;
-      top: -20px;
-      left: 50%;
-      transform: translateX(-50%);
-      border-width: 10px;
-      border-style: solid;
-      border-color: transparent transparent rgba(255,255,255,0.85) transparent;
-    }
-  </style>
+.hero-text {
+color: #ffffff;
+text-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
+animation: fadeInDown 1s ease-out;
+}
+
+@keyframes fadeInDown {
+from {
+opacity: 0;
+transform: translateY(-20px);
+}
+to {
+opacity: 1;
+transform: translateY(0);
+}
+}
+
+/* 吹き出しデザイン */
+.speech-bubble {
+position: relative;
+background: rgba(255,255,255,0.85);
+color: #1f2a44;
+padding: 1rem 1.2rem;
+border-radius: 14px;
+max-width: 520px;
+margin: 1.8rem auto 0 auto;
+font-weight: 500;
+}
+
+.speech-bubble::after {
+content: "";
+position: absolute;
+top: -20px;
+left: 50%;
+transform: translateX(-50%);
+border-width: 10px;
+border-style: solid;
+border-color: transparent transparent rgba(255,255,255,0.85) transparent;
+}
+
+/* カウントアップ数字のスタイル */
+.counter-number {
+font-size: 2.5rem;
+font-weight: 900;
+background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+background-clip: text;
+display: inline-block;
+margin: 0.5rem 0;
+}
+
+/* SNSアイコングリッド */
+.sns-icon-grid {
+display: grid;
+grid-template-columns: repeat(2, 1fr);
+gap: 1.5rem;
+margin: 1.5rem 0;
+}
+
+.sns-icon-item {
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+padding: 1.2rem;
+background: rgba(255, 255, 255, 0.9);
+border-radius: 12px;
+transition: transform 0.3s ease, box-shadow 0.3s ease;
+box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.sns-icon-item:hover {
+transform: scale(1.05);
+box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.sns-icon-item img {
+width: 48px;
+height: 48px;
+object-fit: contain;
+margin-bottom: 0.5rem;
+}
+
+.sns-icon-item span {
+font-size: 0.85rem;
+font-weight: 600;
+color: #1f2a44;
+}
+
+/* ロゴアニメーション */
+header img {
+animation: logoFloat 3s ease-in-out infinite;
+}
+
+@keyframes logoFloat {
+0%, 100% {
+transform: translateY(0);
+}
+50% {
+transform: translateY(-10px);
+}
+}
+
+/* リストアイテムのアニメーション */
+.animated-list li {
+opacity: 0;
+transform: translateX(-20px);
+animation: slideInLeft 0.5s ease-out forwards;
+}
+
+.animated-list li:nth-child(1) { animation-delay: 0.1s; }
+.animated-list li:nth-child(2) { animation-delay: 0.2s; }
+.animated-list li:nth-child(3) { animation-delay: 0.3s; }
+.animated-list li:nth-child(4) { animation-delay: 0.4s; }
+.animated-list li:nth-child(5) { animation-delay: 0.5s; }
+.animated-list li:nth-child(6) { animation-delay: 0.6s; }
+
+@keyframes slideInLeft {
+to {
+opacity: 1;
+transform: translateX(0);
+}
+}
+
+/* スクロールプログレスバー */
+.scroll-progress {
+position: fixed;
+top: 0;
+left: 0;
+height: 4px;
+background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+z-index: 9999;
+transition: width 0.1s ease-out;
+}
+</style>
 </head>
 
 <body>
 
+<!-- スクロールプログレスバー -->
+<div class="scroll-progress" id="scrollProgress"></div>
+
 <header class="py-10 flex flex-col items-center space-y-4">
-  <img src="./image.png" alt="関西グルメ あるこ ロゴ" class="w-40 md:w-48">
+<img src="./image.png" alt="関西グルメ あるこ ロゴ" class="w-40 md:w-48">
 
-  <h1 class="hero-text text-2xl md:text-3xl font-bold tracking-wide">
-    関西グルメ あるこ
-  </h1>
+<h1 class="hero-text text-2xl md:text-3xl font-bold tracking-wide">
+関西グルメ あるこ
+</h1>
 
-  <div class="speech-bubble">
-    ご覧いただきありがとうございます😊
-  </div>
+<div class="speech-bubble">
+ご覧いただきありがとうございます😊
+</div>
 </header>
 
 <section class="section">
-  <div class="card">
-    <h2 class="section-title text-base md:text-lg">自己紹介</h2>
-    <p class="text-sm md:text-base">
-      関西を歩き回る営業マンが、関西のグルメ情報を
-      Instagram・TikTokを中心に発信しています。<br>
-      居酒屋・カフェ・スイーツ・商品などジャンルに縛られず、
-      店舗様の魅力が自然に伝わる投稿を心がけています。
-    </p>
-  </div>
+<div class="card">
+<h2 class="section-title text-base md:text-lg">自己紹介</h2>
+<p class="text-sm md:text-base">
+関西を歩き回る営業マンが、関西のグルメ情報を
+Instagram・TikTokを中心に発信しています。<br>
+居酒屋・カフェ・スイーツ・商品などジャンルに縛られず、
+店舗様の魅力が自然に伝わる投稿を心がけています。
+</p>
+</div>
 </section>
 
 <section class="section">
-  <div class="card">
-    <h2 class="section-title text-base md:text-lg">PR対応について</h2>
+<div class="card">
+<h2 class="section-title text-base md:text-lg">PR対応について</h2>
 
-    <ul class="space-y-2 text-sm md:text-base">
-      <li>・リール／フィード投稿どちらも対応可能です</li>
-      <li>・TikTokへの投稿も可能です</li>
-      <li>・共同投稿（コラボ）も対応可能です</li>
-      <li>・Google、食べログの投稿も対応いたします</li>
-      <li>・PR条件はご相談させてください</li>
-      <li class="pl-4 text-gray-500 text-xs">
-        ※基本的には店舗様の条件・ご要望を優先いたします
-      </li>
-    </ul>
+<p class="text-center text-sm md:text-base mb-4" style="font-weight: 600; color: #1f2a44;">
+投稿媒体は<strong>Instagram、TikTok、Google、食べログ</strong>にて対応可能です。
+</p>
 
-    <div class="speech-bubble">
-      <h2 class="section-title text-sm md:text-base">大事にしていること</h2>
-      <ul class="space-y-2 text-sm md:text-base">
-        <li>・店舗様の想いやこだわりを優先すること</li>
-        <li>・より多くの方に届く投稿内容にすること</li>
-        <li>・実際の雰囲気や体験を言語化すること</li>
-        <li>・目を引く写真や映像、編集にすること</li>
-      </ul>
-    </div>
+<div class="sns-icon-grid">
+<div class="sns-icon-item">
+<img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram">
+<span>Instagram</span>
+</div>
+<div class="sns-icon-item">
+<img src="https://upload.wikimedia.org/wikipedia/commons/3/34/Ionicons_logo-tiktok.svg" alt="TikTok">
+<span>TikTok</span>
+</div>
+<div class="sns-icon-item">
+<img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" alt="Google">
+<span>Google</span>
+</div>
+<div class="sns-icon-item">
+<img src="https://tblg.k-img.com/images/smartphone/icon_tabelog_192.png" alt="食べログ">
+<span>食べログ</span>
+</div>
+</div>
 
-    <!-- 追加した吹き出し -->
-    <div class="speech-bubble">
-      <h2 class="section-title text-sm md:text-base">イメージ</h2>
-      <p class="text-sm md:text-base text-center">
-        insta＋tiktokにて投稿後10日間で<br>
-        約 <strong>2000〜4000人</strong> に閲覧されています
-      </p>
-    </div>
+<ul class="space-y-2 text-sm md:text-base animated-list mt-4">
+<li>・リール／フィード投稿どちらも対応可能です</li>
+<li>・TikTokへの投稿も可能です</li>
+<li>・共同投稿(コラボ)も対応可能です</li>
+<li>・PR条件はご相談させてください</li>
+<li class="pl-4 text-gray-500 text-xs">
+※基本的には店舗様の条件・ご要望を優先いたします
+</li>
+</ul>
 
-    <p class="mt-6 font-bold text-sm md:text-base border-l-4 border-[#1f2a44] pl-4">
-      営業職としての経験から「何が伝われば興味を持ってもらえるか」を常に意識し、
-      料理・ジャンル・特徴がサムネイルだけで一目で伝わる設計にこだわっています。
-    </p>
-  </div>
+<div class="speech-bubble">
+<h2 class="section-title text-sm md:text-base">イメージ</h2>
+<p class="text-sm md:text-base text-center">
+instaとtiktokにて投稿後約10日間で...
+</p>
+<div class="counter-number" id="counterNumber">2000</div>
+<p class="text-sm md:text-base text-center">
+〜<span class="counter-number" style="font-size: 2rem;" id="counterNumberMax">4000</span>人
+</p>
+<p class="text-xs text-gray-600 text-center mt-2">
+に閲覧されています
+</p>
+</div>
+
+<div class="speech-bubble">
+<h2 class="section-title text-sm md:text-base">大事にしていること</h2>
+<ul class="space-y-2 text-sm md:text-base">
+<li>・店舗様の想いやこだわりを優先すること</li>
+<li>・より多くの方に届く投稿内容にすること</li>
+<li>・実際の雰囲気や体験を言語化すること</li>
+<li>・目を引く写真や映像、編集にすること</li>
+</ul>
+</div>
+
+<p class="mt-6 font-bold text-sm md:text-base border-l-4 border-[#1f2a44] pl-4">
+営業職としての経験から「何が伝われば興味を持ってもらえるか」を常に意識し、
+料理・ジャンル・特徴がサムネイルだけで一目で伝わる設計にこだわっています。
+</p>
+</div>
 </section>
 
 <section class="section">
-  <div class="card">
-    <h2 class="section-title text-base md:text-lg">こんな店舗から依頼を受けています</h2>
-    <ul class="space-y-2 text-sm md:text-base">
-      <li>・初めてインフルエンサーPRを検討している</li>
-      <li>・広告感の強い投稿は避けたい</li>
-      <li>・想いやこだわりを丁寧に表現してほしい</li>
-      <li>・柔軟に相談しながら進めたい</li>
-    </ul>
-  </div>
+<div class="card">
+<h2 class="section-title text-base md:text-lg">こんな店舗から依頼を受けています</h2>
+<ul class="space-y-2 text-sm md:text-base">
+<li>・初めてインフルエンサーPRを検討している</li>
+<li>・広告感の強い投稿は避けたい</li>
+<li>・想いやこだわりを丁寧に表現してほしい</li>
+<li>・柔軟に相談しながら進めたい</li>
+</ul>
+</div>
 </section>
 
 <section class="section">
-  <div class="card">
-    <h2 class="section-title text-base md:text-lg">なぜ、発信をしているのか？</h2>
-    <div class="space-y-3 text-sm md:text-base">
-      <p>
-        きっかけは、自分自身の「備忘録」でした。
-        営業という仕事柄、会食やランチの機会は多いものの、
-        これまで記録していなかったことが始まりです。
-      </p>
-      <p>
-        「美味しいのに意外と知られていない」お店を、
-        必要としている人に届けたいという想いと、知人や家内と「どこに行こうか？」と迷う時の情報源を作りたいと考え、発信を始めました。
-      </p>
-      <p>
-        カメラマンを目指していたことから、
-        撮影や編集が好きで、得意な方だと思っております。
-        そして、1人で完結するのではなく、店舗様と一緒に投稿を作り上げる発信を心がけています。
-      </p>
-    </div>
-  </div>
+<div class="card">
+<h2 class="section-title text-base md:text-lg">なぜ、発信をしているのか?</h2>
+<div class="space-y-3 text-sm md:text-base">
+<p>
+きっかけは、自分自身の「備忘録」でした。
+営業という仕事柄、会食やランチの機会は多いものの、
+これまで記録していなかったことが始まりです。
+</p>
+<p>
+「美味しいのに意外と知られていない」お店を、
+必要としている人に届けたいという想いと、知人や家内と「どこに行こうか?」と迷う時の情報源を作りたいと考え、発信を始めました。
+</p>
+<p>
+カメラマンを目指していたことから、
+撮影や編集が好きで、得意な方だと思っております。
+そして、1人で完結するのではなく、店舗様と一緒に投稿を作り上げる発信を心がけています。
+</p>
+</div>
+</div>
 </section>
 
 <section class="section">
-  <div class="card text-center space-y-6">
-    <div class="flex justify-center gap-8">
-      <a href="https://www.instagram.com/kansai_gurme_alco" target="_blank" rel="noopener noreferrer">
-        <i class="fab fa-instagram text-3xl"></i>
-      </a>
-      <a href="https://www.tiktok.com/@kansai_gurme_alco" target="_blank" rel="noopener noreferrer">
-        <i class="fab fa-tiktok text-3xl"></i>
-      </a>
-    </div>
+<div class="card text-center space-y-6">
+<div class="flex justify-center gap-8">
+<a href="https://www.instagram.com/kansai_gurme_alco" target="_blank" rel="noopener noreferrer">
+<i class="fab fa-instagram text-3xl"></i>
+</a>
+<a href="https://www.tiktok.com/@kansai_gurme_alco" target="_blank" rel="noopener noreferrer">
+<i class="fab fa-tiktok text-3xl"></i>
+</a>
+</div>
 
-    <a href="instagram://direct?username=kansai_gurme_alco"
-       class="btn-dm mx-auto flex flex-col items-center justify-center">
-      <span class="flex items-center gap-2">
-        <i class="fas fa-envelope"></i>
-        PR・お仕事のご依頼はDMからお願いいたします。
-      </span>
-    </a>
+<a href="instagram://direct?username=kansai_gurme_alco"
+class="btn-dm mx-auto flex flex-col items-center justify-center">
+<span class="flex items-center gap-2">
+<i class="fas fa-envelope"></i>
+PR・お仕事のご依頼はDMからお願いいたします。
+</span>
+</a>
 
-    <p class="text-xs text-gray-500">
-      実績はまだ多くありませんが、<br>
-      一件一件、誠実に対応いたします。
-    </p>
-  </div>
+<p class="text-xs text-gray-500">
+実績はまだ多くありませんが、<br>
+一件一件、誠実に対応いたします。
+</p>
+</div>
 </section>
 
 <footer class="text-center text-[10px] text-gray-300 mt-10 pb-6 tracking-widest">
-  &copy; 関西グルメ あるこ
+&copy; 関西グルメ あるこ
 </footer>
+
+<script>
+// スクロールプログレスバー
+window.addEventListener('scroll', () => {
+const scrollProgress = document.getElementById('scrollProgress');
+const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+const scrollPercentage = (scrollTop / scrollHeight) * 100;
+scrollProgress.style.width = scrollPercentage + '%';
+});
+
+// セクションのフェードイン
+const observerOptions = {
+threshold: 0.1,
+rootMargin: '0px 0px -50px 0px'
+};
+
+const observer = new IntersectionObserver((entries) => {
+entries.forEach(entry => {
+if (entry.isIntersecting) {
+entry.target.classList.add('visible');
+}
+});
+}, observerOptions);
+
+document.querySelectorAll('.section').forEach(section => {
+observer.observe(section);
+});
+
+// カウントアップアニメーション
+function animateCounter(element, start, end, duration) {
+let startTime = null;
+
+const step = (currentTime) => {
+if (!startTime) startTime = currentTime;
+const progress = Math.min((currentTime - startTime) / duration, 1);
+const value = Math.floor(progress * (end - start) + start);
+element.textContent = value.toLocaleString();
+
+if (progress < 1) {
+requestAnimationFrame(step);
+}
+};
+requestAnimationFrame(step);
+}
+
+// カウンターが画面に表示されたらアニメーション開始
+const counterObserver = new IntersectionObserver((entries) => {
+entries.forEach(entry => {
+if (entry.isIntersecting && !entry.target.classList.contains('counted')) {
+entry.target.classList.add('counted');
+if (entry.target.id === 'counterNumber') {
+animateCounter(entry.target, 0, 2000, 2000);
+} else if (entry.target.id === 'counterNumberMax') {
+animateCounter(entry.target, 2000, 4000, 2000);
+}
+}
+});
+}, { threshold: 0.5 });
+
+const counterElements = document.querySelectorAll('#counterNumber, #counterNumberMax');
+counterElements.forEach(el => counterObserver.observe(el));
+
+// スムーススクロール
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+anchor.addEventListener('click', function (e) {
+e.preventDefault();
+const target = document.querySelector(this.getAttribute('href'));
+if (target) {
+target.scrollIntoView({
+behavior: 'smooth',
+block: 'start'
+});
+}
+});
+});
+</script>
 
 </body>
 </html>
-
