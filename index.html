@@ -14,17 +14,11 @@
 <style>
 body {
 color: #1f2a44;
-background-color: #4a5568;
+background-image: url("./denim-bg.jpg");
 background-size: cover;
 background-position: center;
 background-attachment: fixed;
 line-height: 1.8;
-position: relative;
-overflow-x: hidden;
-}
-
-body.bg-loaded {
-background-image: url("./denim-bg.jpg");
 }
 
 .section {
@@ -33,7 +27,7 @@ margin: 1.6rem auto;
 padding: 0 1rem;
 opacity: 0;
 transform: translateY(30px);
-transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
 
 .section.visible {
@@ -42,17 +36,17 @@ transform: translateY(0);
 }
 
 .card {
-background: rgba(255, 255, 255, 0.85);
-backdrop-filter: blur(10px);
+background: rgba(255, 255, 255, 0.78);
+backdrop-filter: blur(6px);
 border-radius: 14px;
 padding: 1.5rem 1.4rem;
-box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-transition: transform 0.2s ease;
-border: 1px solid rgba(255, 255, 255, 0.2);
+box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .card:hover {
-transform: translateY(-6px);
+transform: translateY(-4px);
+box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
 }
 
 .section-title {
@@ -62,18 +56,6 @@ letter-spacing: 0.15em;
 border-bottom: 1px solid #e5e7eb;
 padding-bottom: 0.5rem;
 margin-bottom: 1.2rem;
-position: relative;
-}
-
-.section-title::after {
-content: '';
-position: absolute;
-bottom: -1px;
-left: 50%;
-transform: translateX(-50%);
-width: 60%;
-height: 2px;
-background: linear-gradient(90deg, transparent, #667eea, transparent);
 }
 
 .btn-sns, .btn-dm {
@@ -86,26 +68,37 @@ display: inline-flex;
 align-items: center;
 justify-content: center;
 gap: 0.5rem;
-transition: transform 0.2s ease;
+transition: opacity 0.2s, transform 0.2s;
 text-decoration: none;
 flex-direction: column;
-position: relative;
-overflow: hidden;
 }
 
 .btn-sns:hover, .btn-dm:hover {
-transform: translateY(-3px) scale(1.05);
+opacity: 0.85;
+transform: translateY(-2px);
 }
 
 .hero-text {
 color: #ffffff;
 text-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
+animation: fadeInDown 1s ease-out;
+}
+
+@keyframes fadeInDown {
+from {
+opacity: 0;
+transform: translateY(-20px);
+}
+to {
+opacity: 1;
+transform: translateY(0);
+}
 }
 
 /* 吹き出しデザイン */
 .speech-bubble {
 position: relative;
-background: rgba(255,255,255,0.9);
+background: rgba(255,255,255,0.85);
 color: #1f2a44;
 padding: 1rem 1.2rem;
 border-radius: 14px;
@@ -122,7 +115,7 @@ left: 50%;
 transform: translateX(-50%);
 border-width: 10px;
 border-style: solid;
-border-color: transparent transparent rgba(255,255,255,0.9) transparent;
+border-color: transparent transparent rgba(255,255,255,0.85) transparent;
 }
 
 /* カウントアップ数字のスタイル - 1行で表示 */
@@ -165,15 +158,16 @@ display: flex;
 flex-direction: column;
 align-items: center;
 justify-content: center;
-padding: 0.8rem;
-background: rgba(255, 255, 255, 0.95);
+padding: 1.2rem;
+background: rgba(255, 255, 255, 0.9);
 border-radius: 12px;
-transition: transform 0.3s ease;
-box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+transition: transform 0.3s ease, box-shadow 0.3s ease;
+box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
 .sns-icon-item:hover {
-transform: translateY(-8px);
+transform: scale(1.05);
+box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .sns-icon-item img {
@@ -189,11 +183,11 @@ font-weight: 600;
 color: #1f2a44;
 }
 
-/* メディアグリッド(縦4列) */
+/* メディアグリッド（2x2） */
 .media-grid {
 display: grid;
-grid-template-columns: 1fr;
-gap: 1.5rem;
+grid-template-columns: repeat(2, 1fr);
+gap: 1rem;
 margin: 1.5rem 0;
 }
 
@@ -201,64 +195,68 @@ margin: 1.5rem 0;
 display: flex;
 flex-direction: column;
 align-items: center;
-background: rgba(255, 255, 255, 0.95);
+background: rgba(255, 255, 255, 0.9);
 border-radius: 12px;
 padding: 1rem;
-box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-transition: transform 0.3s ease;
+box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .media-item:hover {
-transform: translateY(-8px);
+transform: translateY(-4px);
+box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .media-item-title {
-font-size: 0.85rem;
+font-size: 0.75rem;
 font-weight: 700;
 color: #1f2a44;
-margin-bottom: 0.75rem;
+margin-bottom: 0.5rem;
 text-align: center;
-position: relative;
-}
-
-.media-item-title::before {
-content: '✦';
-margin-right: 0.5rem;
-color: #667eea;
-}
-
-.media-item-title::after {
-content: '✦';
-margin-left: 0.5rem;
-color: #667eea;
 }
 
 .media-item img,
 .media-item video {
 width: 100%;
 height: auto;
-max-height: 400px;
+max-height: 200px;
 object-fit: cover;
 border-radius: 8px;
 }
 
 /* ロゴアニメーション */
 header img {
-filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+animation: logoFloat 3s ease-in-out infinite;
+}
+
+@keyframes logoFloat {
+0%, 100% {
+transform: translateY(0);
+}
+50% {
+transform: translateY(-10px);
+}
 }
 
 /* リストアイテムのアニメーション */
 .animated-list li {
-position: relative;
-padding-left: 1.5rem;
+opacity: 0;
+transform: translateX(-20px);
+animation: slideInLeft 0.5s ease-out forwards;
 }
 
-.animated-list li::before {
-content: '◆';
-position: absolute;
-left: 0;
-color: #667eea;
-font-size: 0.7rem;
+.animated-list li:nth-child(1) { animation-delay: 0.1s; }
+.animated-list li:nth-child(2) { animation-delay: 0.2s; }
+.animated-list li:nth-child(3) { animation-delay: 0.3s; }
+.animated-list li:nth-child(4) { animation-delay: 0.4s; }
+.animated-list li:nth-child(5) { animation-delay: 0.5s; }
+.animated-list li:nth-child(6) { animation-delay: 0.6s; }
+
+@keyframes slideInLeft {
+to {
+opacity: 1;
+transform: translateX(0);
+}
 }
 
 /* スクロールプログレスバー */
@@ -267,10 +265,9 @@ position: fixed;
 top: 0;
 left: 0;
 height: 4px;
-background: linear-gradient(90deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
 z-index: 9999;
-width: 0%;
-box-shadow: 0 2px 10px rgba(102, 126, 234, 0.5);
+transition: width 0.1s ease-out;
 }
 </style>
 </head>
@@ -384,19 +381,19 @@ instaとtiktokにて投稿後約10日間で...
 <div class="media-grid">
 <div class="media-item">
 <div class="media-item-title">【料理写真①】</div>
-<img src="./image1.png" alt="料理写真1" loading="lazy">
+<img src="./image1.png" alt="料理写真1">
 </div>
 <div class="media-item">
 <div class="media-item-title">【料理写真②】</div>
-<img src="./image2.png" alt="料理写真2" loading="lazy">
+<img src="./image2.png" alt="料理写真2">
 </div>
 <div class="media-item">
 <div class="media-item-title">【サムネイル】</div>
-<img src="./image3.png" alt="サムネイル" loading="lazy">
+<img src="./image3.png" alt="サムネイル">
 </div>
 <div class="media-item">
 <div class="media-item-title">【リール】</div>
-<video id="reelVideo" playsinline loop muted preload="metadata">
+<video controls playsinline loop muted>
 <source src="./image4.mp4" type="video/mp4">
 お使いのブラウザは動画再生に対応していません。
 </video>
@@ -430,7 +427,7 @@ instaとtiktokにて投稿後約10日間で...
 </p>
 <p>
 「美味しいのに意外と知られていない」お店を、
-必要としている人に届けたいという想いと、知人や家内と「どこに行こうか?」「良いお店知ってる?」と聞かれた時やお店選びを迷う時の情報源を作りたいと思い、発信を始めました。
+必要としている人に届けたいという想いと、知人や家内と「どこに行こうか?」「良いお店知ってる？」と聞かれた時やお店選びを迷う時の情報源を作りたいと思い、発信を始めました。
 </p>
 <p>
 1人で完結するのではなく、店舗様と一緒に作り上げる発信を心がけています。
@@ -470,38 +467,28 @@ PR・お仕事のご依頼はDMからお願いいたします。
 </footer>
 
 <script>
-// 背景画像の遅延読み込み
-window.addEventListener('load', () => {
-document.body.classList.add('bg-loaded');
-});
-
-// スクロールプログレスバー（throttle適用）
-let ticking = false;
+// スクロールプログレスバー
 window.addEventListener('scroll', () => {
-if (!ticking) {
-window.requestAnimationFrame(() => {
 const scrollProgress = document.getElementById('scrollProgress');
 const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
 const scrollPercentage = (scrollTop / scrollHeight) * 100;
 scrollProgress.style.width = scrollPercentage + '%';
-ticking = false;
-});
-ticking = true;
-}
 });
 
-// 統合されたIntersectionObserver
+// セクションのフェードイン
+const observerOptions = {
+threshold: 0.1,
+rootMargin: '0px 0px -50px 0px'
+};
+
 const observer = new IntersectionObserver((entries) => {
 entries.forEach(entry => {
 if (entry.isIntersecting) {
 entry.target.classList.add('visible');
 }
 });
-}, {
-threshold: 0.1,
-rootMargin: '0px 0px -50px 0px'
-});
+}, observerOptions);
 
 document.querySelectorAll('.section').forEach(section => {
 observer.observe(section);
@@ -541,21 +528,19 @@ animateCounter(entry.target, 2000, 4000, 2000);
 const counterElements = document.querySelectorAll('#counterNumber, #counterNumberMax');
 counterElements.forEach(el => counterObserver.observe(el));
 
-// リール動画の自動再生機能
-const reelVideo = document.getElementById('reelVideo');
-if (reelVideo) {
-const videoObserver = new IntersectionObserver((entries) => {
-entries.forEach(entry => {
-if (entry.isIntersecting) {
-reelVideo.play().catch(e => console.log('動画の自動再生ができませんでした:', e));
-} else {
-reelVideo.pause();
+// スムーススクロール
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+anchor.addEventListener('click', function (e) {
+e.preventDefault();
+const target = document.querySelector(this.getAttribute('href'));
+if (target) {
+target.scrollIntoView({
+behavior: 'smooth',
+block: 'start'
+});
 }
 });
-}, { threshold: 0.5 });
-
-videoObserver.observe(reelVideo);
-}
+});
 </script>
 
 </body>
