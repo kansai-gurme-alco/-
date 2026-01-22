@@ -14,11 +14,13 @@
 <style>
 body {
 color: #1f2a44;
-background-image: url("./ichigan3.jpg");
+background-image: url("./denim.jpg");
 background-size: cover;
 background-position: center;
 background-attachment: fixed;
 line-height: 1.8;
+position: relative;
+overflow-x: hidden;
 }
 
 .section {
@@ -35,18 +37,61 @@ opacity: 1;
 transform: translateY(0);
 }
 
+/* 各セクションに異なるアニメーション */
+.section:nth-child(2) {
+transform: translateX(-50px);
+}
+
+.section:nth-child(2).visible {
+transform: translateX(0);
+}
+
+.section:nth-child(3) {
+transform: scale(0.9);
+}
+
+.section:nth-child(3).visible {
+transform: scale(1);
+}
+
+.section:nth-child(4) {
+transform: translateX(50px);
+}
+
+.section:nth-child(4).visible {
+transform: translateX(0);
+}
+
+.section:nth-child(5) {
+transform: rotateX(10deg);
+transform-origin: top;
+}
+
+.section:nth-child(5).visible {
+transform: rotateX(0deg);
+}
+
+.section:nth-child(6) {
+transform: translateY(50px) scale(0.95);
+}
+
+.section:nth-child(6).visible {
+transform: translateY(0) scale(1);
+}
+
 .card {
-background: rgba(255, 255, 255, 0.78);
-backdrop-filter: blur(6px);
+background: rgba(255, 255, 255, 0.85);
+backdrop-filter: blur(10px);
 border-radius: 14px;
 padding: 1.5rem 1.4rem;
-box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 transition: transform 0.3s ease, box-shadow 0.3s ease;
+border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .card:hover {
-transform: translateY(-4px);
-box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+transform: translateY(-6px);
+box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
 }
 
 .section-title {
@@ -56,6 +101,25 @@ letter-spacing: 0.15em;
 border-bottom: 1px solid #e5e7eb;
 padding-bottom: 0.5rem;
 margin-bottom: 1.2rem;
+position: relative;
+}
+
+.section-title::after {
+content: '';
+position: absolute;
+bottom: -1px;
+left: 50%;
+transform: translateX(-50%) scaleX(0);
+width: 60%;
+height: 2px;
+background: linear-gradient(90deg, transparent, #667eea, transparent);
+animation: titleUnderline 1.5s ease-out forwards;
+}
+
+@keyframes titleUnderline {
+to {
+transform: translateX(-50%) scaleX(1);
+}
 }
 
 .btn-sns, .btn-dm {
@@ -68,14 +132,34 @@ display: inline-flex;
 align-items: center;
 justify-content: center;
 gap: 0.5rem;
-transition: opacity 0.2s, transform 0.2s;
+transition: all 0.3s ease;
 text-decoration: none;
 flex-direction: column;
+position: relative;
+overflow: hidden;
+}
+
+.btn-sns::before, .btn-dm::before {
+content: '';
+position: absolute;
+top: 50%;
+left: 50%;
+width: 0;
+height: 0;
+border-radius: 50%;
+background: rgba(255, 255, 255, 0.2);
+transform: translate(-50%, -50%);
+transition: width 0.6s, height 0.6s;
+}
+
+.btn-sns:hover::before, .btn-dm:hover::before {
+width: 300px;
+height: 300px;
 }
 
 .btn-sns:hover, .btn-dm:hover {
-opacity: 0.85;
-transform: translateY(-2px);
+transform: translateY(-3px) scale(1.05);
+box-shadow: 0 8px 20px rgba(31, 42, 68, 0.4);
 }
 
 .hero-text {
@@ -98,13 +182,28 @@ transform: translateY(0);
 /* 吹き出しデザイン */
 .speech-bubble {
 position: relative;
-background: rgba(255,255,255,0.85);
+background: rgba(255,255,255,0.9);
 color: #1f2a44;
 padding: 1rem 1.2rem;
 border-radius: 14px;
 max-width: 520px;
 margin: 1.8rem auto 0 auto;
 font-weight: 500;
+animation: bubblePop 0.6s ease-out;
+}
+
+@keyframes bubblePop {
+0% {
+opacity: 0;
+transform: scale(0.8);
+}
+50% {
+transform: scale(1.05);
+}
+100% {
+opacity: 1;
+transform: scale(1);
+}
 }
 
 .speech-bubble::after {
@@ -115,7 +214,7 @@ left: 50%;
 transform: translateX(-50%);
 border-width: 10px;
 border-style: solid;
-border-color: transparent transparent rgba(255,255,255,0.85) transparent;
+border-color: transparent transparent rgba(255,255,255,0.9) transparent;
 }
 
 /* カウントアップ数字のスタイル - 1行で表示 */
@@ -137,6 +236,16 @@ background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
 background-clip: text;
 display: inline-block;
 line-height: 1;
+animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+0%, 100% {
+transform: scale(1);
+}
+50% {
+transform: scale(1.05);
+}
 }
 
 .counter-text {
@@ -158,16 +267,41 @@ display: flex;
 flex-direction: column;
 align-items: center;
 justify-content: center;
-padding: 1.2rem;
-background: rgba(255, 255, 255, 0.9);
+padding: 0.8rem;
+background: rgba(255, 255, 255, 0.95);
 border-radius: 12px;
-transition: transform 0.3s ease, box-shadow 0.3s ease;
-box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+opacity: 0;
+transform: translateY(20px);
+}
+
+.sns-icon-item.animate-in {
+animation: iconBounceIn 0.6s ease-out forwards;
+}
+
+.sns-icon-item:nth-child(1) { animation-delay: 0.1s; }
+.sns-icon-item:nth-child(2) { animation-delay: 0.2s; }
+.sns-icon-item:nth-child(3) { animation-delay: 0.3s; }
+.sns-icon-item:nth-child(4) { animation-delay: 0.4s; }
+
+@keyframes iconBounceIn {
+0% {
+opacity: 0;
+transform: translateY(20px) scale(0.8);
+}
+60% {
+transform: translateY(-5px) scale(1.05);
+}
+100% {
+opacity: 1;
+transform: translateY(0) scale(1);
+}
 }
 
 .sns-icon-item:hover {
-transform: scale(1.05);
-box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+transform: translateY(-8px) rotate(5deg) scale(1.1);
+box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
 .sns-icon-item img {
@@ -175,6 +309,11 @@ width: 48px;
 height: 48px;
 object-fit: contain;
 margin-bottom: 0.5rem;
+transition: transform 0.3s ease;
+}
+
+.sns-icon-item:hover img {
+transform: scale(1.2) rotate(-5deg);
 }
 
 .sns-icon-item span {
@@ -183,11 +322,11 @@ font-weight: 600;
 color: #1f2a44;
 }
 
-/* メディアグリッド（2x2） */
+/* メディアグリッド(縦4列) */
 .media-grid {
 display: grid;
-grid-template-columns: repeat(2, 1fr);
-gap: 1rem;
+grid-template-columns: 1fr;
+gap: 1.5rem;
 margin: 1.5rem 0;
 }
 
@@ -195,38 +334,87 @@ margin: 1.5rem 0;
 display: flex;
 flex-direction: column;
 align-items: center;
-background: rgba(255, 255, 255, 0.9);
+background: rgba(255, 255, 255, 0.95);
 border-radius: 12px;
 padding: 1rem;
-box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-transition: transform 0.3s ease, box-shadow 0.3s ease;
+box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+transition: all 0.4s ease;
+opacity: 0;
+}
+
+.media-item.animate-in {
+animation: mediaSlideIn 0.8s ease-out forwards;
+}
+
+.media-item:nth-child(1) { 
+animation-delay: 0.1s;
+transform: translateX(-30px);
+}
+.media-item:nth-child(2) { 
+animation-delay: 0.3s;
+transform: translateX(30px);
+}
+.media-item:nth-child(3) { 
+animation-delay: 0.5s;
+transform: translateX(-30px);
+}
+.media-item:nth-child(4) { 
+animation-delay: 0.7s;
+transform: translateX(30px);
+}
+
+@keyframes mediaSlideIn {
+to {
+opacity: 1;
+transform: translateX(0);
+}
 }
 
 .media-item:hover {
-transform: translateY(-4px);
-box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+transform: translateY(-8px) scale(1.02);
+box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
 }
 
 .media-item-title {
-font-size: 0.75rem;
+font-size: 0.85rem;
 font-weight: 700;
 color: #1f2a44;
-margin-bottom: 0.5rem;
+margin-bottom: 0.75rem;
 text-align: center;
+position: relative;
+}
+
+.media-item-title::before {
+content: '✦';
+margin-right: 0.5rem;
+color: #667eea;
+}
+
+.media-item-title::after {
+content: '✦';
+margin-left: 0.5rem;
+color: #667eea;
 }
 
 .media-item img,
 .media-item video {
 width: 100%;
 height: auto;
-max-height: 200px;
+max-height: 400px;
 object-fit: cover;
 border-radius: 8px;
+transition: transform 0.3s ease;
+}
+
+.media-item:hover img,
+.media-item:hover video {
+transform: scale(1.05);
 }
 
 /* ロゴアニメーション */
 header img {
 animation: logoFloat 3s ease-in-out infinite;
+filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
 }
 
 @keyframes logoFloat {
@@ -243,6 +431,28 @@ transform: translateY(-10px);
 opacity: 0;
 transform: translateX(-20px);
 animation: slideInLeft 0.5s ease-out forwards;
+position: relative;
+padding-left: 1.5rem;
+}
+
+.animated-list li::before {
+content: '◆';
+position: absolute;
+left: 0;
+color: #667eea;
+font-size: 0.7rem;
+animation: sparkle 1.5s ease-in-out infinite;
+}
+
+@keyframes sparkle {
+0%, 100% {
+opacity: 1;
+transform: scale(1);
+}
+50% {
+opacity: 0.5;
+transform: scale(1.2);
+}
 }
 
 .animated-list li:nth-child(1) { animation-delay: 0.1s; }
@@ -259,15 +469,51 @@ transform: translateX(0);
 }
 }
 
+/* 段落の強調アニメーション */
+.card p {
+opacity: 0;
+animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.card p:nth-of-type(1) { animation-delay: 0.2s; }
+.card p:nth-of-type(2) { animation-delay: 0.4s; }
+.card p:nth-of-type(3) { animation-delay: 0.6s; }
+
+@keyframes fadeInUp {
+from {
+opacity: 0;
+transform: translateY(15px);
+}
+to {
+opacity: 1;
+transform: translateY(0);
+}
+}
+
 /* スクロールプログレスバー */
 .scroll-progress {
 position: fixed;
 top: 0;
 left: 0;
 height: 4px;
-background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+background: linear-gradient(90deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
 z-index: 9999;
 transition: width 0.1s ease-out;
+box-shadow: 0 2px 10px rgba(102, 126, 234, 0.5);
+}
+
+/* SNSアイコンの呼吸アニメーション */
+.fab {
+animation: breathe 3s ease-in-out infinite;
+}
+
+@keyframes breathe {
+0%, 100% {
+transform: scale(1);
+}
+50% {
+transform: scale(1.1);
+}
 }
 </style>
 </head>
@@ -393,7 +639,7 @@ instaとtiktokにて投稿後約10日間で...
 </div>
 <div class="media-item">
 <div class="media-item-title">【リール】</div>
-<video controls playsinline loop muted>
+<video id="reelVideo" playsinline loop muted>
 <source src="./image4.mp4" type="video/mp4">
 お使いのブラウザは動画再生に対応していません。
 </video>
@@ -427,7 +673,7 @@ instaとtiktokにて投稿後約10日間で...
 </p>
 <p>
 「美味しいのに意外と知られていない」お店を、
-必要としている人に届けたいという想いと、知人や家内と「どこに行こうか?」「良いお店知ってる？」と聞かれた時やお店選びを迷う時の情報源を作りたいと思い、発信を始めました。
+必要としている人に届けたいという想いと、知人や家内と「どこに行こうか?」「良いお店知ってる?」と聞かれた時やお店選びを迷う時の情報源を作りたいと思い、発信を始めました。
 </p>
 <p>
 1人で完結するのではなく、店舗様と一緒に作り上げる発信を心がけています。
@@ -494,6 +740,40 @@ document.querySelectorAll('.section').forEach(section => {
 observer.observe(section);
 });
 
+// SNSアイコンのアニメーション
+const snsIconObserver = new IntersectionObserver((entries) => {
+entries.forEach(entry => {
+if (entry.isIntersecting) {
+const icons = entry.target.querySelectorAll('.sns-icon-item');
+icons.forEach(icon => {
+icon.classList.add('animate-in');
+});
+}
+});
+}, { threshold: 0.3 });
+
+const snsGrid = document.querySelector('.sns-icon-grid');
+if (snsGrid) {
+snsIconObserver.observe(snsGrid);
+}
+
+// メディアアイテムのアニメーション
+const mediaObserver = new IntersectionObserver((entries) => {
+entries.forEach(entry => {
+if (entry.isIntersecting) {
+const items = entry.target.querySelectorAll('.media-item');
+items.forEach(item => {
+item.classList.add('animate-in');
+});
+}
+});
+}, { threshold: 0.2 });
+
+const mediaGrid = document.querySelector('.media-grid');
+if (mediaGrid) {
+mediaObserver.observe(mediaGrid);
+}
+
 // カウントアップアニメーション
 function animateCounter(element, start, end, duration) {
 let startTime = null;
@@ -528,6 +808,22 @@ animateCounter(entry.target, 2000, 4000, 2000);
 const counterElements = document.querySelectorAll('#counterNumber, #counterNumberMax');
 counterElements.forEach(el => counterObserver.observe(el));
 
+// リール動画の自動再生機能
+const reelVideo = document.getElementById('reelVideo');
+if (reelVideo) {
+const videoObserver = new IntersectionObserver((entries) => {
+entries.forEach(entry => {
+if (entry.isIntersecting) {
+reelVideo.play().catch(e => console.log('動画の自動再生ができませんでした:', e));
+} else {
+reelVideo.pause();
+}
+});
+}, { threshold: 0.5 });
+
+videoObserver.observe(reelVideo);
+}
+
 // スムーススクロール
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 anchor.addEventListener('click', function (e) {
@@ -545,9 +841,3 @@ block: 'start'
 
 </body>
 </html>
-
-
-
-
-
-
