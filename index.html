@@ -145,7 +145,7 @@ color: #1f2a44;
 font-weight: 600;
 }
 
-/* SNSアイコングリッド */
+/* SNSアイコングリッド - 縦の長さを短く調整 */
 .sns-icon-grid {
 display: grid;
 grid-template-columns: repeat(2, 1fr);
@@ -158,7 +158,7 @@ display: flex;
 flex-direction: column;
 align-items: center;
 justify-content: center;
-padding: 1.2rem;
+padding: 0.8rem 1rem; /* paddingを削減 */
 background: rgba(255, 255, 255, 0.9);
 border-radius: 12px;
 transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -171,10 +171,10 @@ box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .sns-icon-item img {
-width: 48px;
-height: 48px;
+width: 40px; /* サイズを少し小さく */
+height: 40px;
 object-fit: contain;
-margin-bottom: 0.5rem;
+margin-bottom: 0.4rem; /* マージンも調整 */
 }
 
 .sns-icon-item span {
@@ -183,11 +183,11 @@ font-weight: 600;
 color: #1f2a44;
 }
 
-/* メディアグリッド（2x2） */
+/* メディアグリッド（縦4列に変更） */
 .media-grid {
 display: grid;
-grid-template-columns: repeat(2, 1fr);
-gap: 1rem;
+grid-template-columns: 1fr; /* 1列に変更 */
+gap: 1.5rem; /* gapを広げて見やすく */
 margin: 1.5rem 0;
 }
 
@@ -208,10 +208,10 @@ box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .media-item-title {
-font-size: 0.75rem;
+font-size: 0.85rem; /* 少し大きく */
 font-weight: 700;
 color: #1f2a44;
-margin-bottom: 0.5rem;
+margin-bottom: 0.8rem;
 text-align: center;
 }
 
@@ -219,7 +219,7 @@ text-align: center;
 .media-item video {
 width: 100%;
 height: auto;
-max-height: 200px;
+max-height: 400px; /* 高さを大きく */
 object-fit: cover;
 border-radius: 8px;
 }
@@ -393,7 +393,7 @@ instaとtiktokにて投稿後約10日間で...
 </div>
 <div class="media-item">
 <div class="media-item-title">【リール】</div>
-<video controls playsinline loop muted>
+<video id="reelVideo" playsinline loop muted>
 <source src="./image4.mp4" type="video/mp4">
 お使いのブラウザは動画再生に対応していません。
 </video>
@@ -427,7 +427,7 @@ instaとtiktokにて投稿後約10日間で...
 </p>
 <p>
 「美味しいのに意外と知られていない」お店を、
-必要としている人に届けたいという想いと、知人や家内と「どこに行こうか?」「良いお店知ってる？」と聞かれた時やお店選びを迷う時の情報源を作りたいと思い、発信を始めました。
+必要としている人に届けたいという想いと、知人や家内と「どこに行こうか?」「良いお店知ってる?」と聞かれた時やお店選びを迷う時の情報源を作りたいと思い、発信を始めました。
 </p>
 <p>
 1人で完結するのではなく、店舗様と一緒に作り上げる発信を心がけています。
@@ -527,6 +527,25 @@ animateCounter(entry.target, 2000, 4000, 2000);
 
 const counterElements = document.querySelectorAll('#counterNumber, #counterNumberMax');
 counterElements.forEach(el => counterObserver.observe(el));
+
+// リール動画の自動再生（画面に表示されたタイミングで0秒目から再生）
+const reelVideo = document.getElementById('reelVideo');
+const videoObserver = new IntersectionObserver((entries) => {
+entries.forEach(entry => {
+if (entry.isIntersecting) {
+// 画面に表示されたら0秒目から再生
+reelVideo.currentTime = 0;
+reelVideo.play().catch(err => {
+console.log('動画の自動再生がブロックされました:', err);
+});
+} else {
+// 画面外に出たら一時停止
+reelVideo.pause();
+}
+});
+}, { threshold: 0.5 }); // 50%以上表示されたら再生
+
+videoObserver.observe(reelVideo);
 
 // スムーススクロール
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
