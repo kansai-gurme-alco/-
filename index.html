@@ -5,12 +5,55 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>関西グルメ あるこ｜店舗PR</title>
 
+<!-- 追加したやーつ　-->
+    <script>
+const barObserver = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+
+      // バーを伸ばす
+      entry.target.querySelectorAll('.bar').forEach(bar => {
+        bar.style.width = bar.dataset.width + '%';
+      });
+
+      // 数字カウントアップ
+      entry.target.querySelectorAll('.count').forEach(el => {
+        const target = parseFloat(el.dataset.target);
+        let current = 0;
+        const step = target / 40;
+
+        const timer = setInterval(() => {
+          current += step;
+          if (current >= target) {
+            el.textContent = target;
+            clearInterval(timer);
+          } else {
+            el.textContent = current.toFixed(1);
+          }
+        }, 30);
+      });
+
+      barObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.4 });
+
+document.querySelectorAll('.card').forEach(card => {
+  if (card.querySelector('.bar')) {
+    barObserver.observe(card);
+  }
+});
+</script>
+    
 <!-- Tailwind CSS -->
 <script src="https://cdn.tailwindcss.com"></script>
 
 <!-- Font Awesome -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
+<!-- 円グラフ用ライブラリ（Chart.js） -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
 <style>
 body {
 color: #1f2a44;
@@ -269,6 +312,13 @@ background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
 z-index: 9999;
 transition: width 0.1s ease-out;
 }
+
+/* 年齢分布の円グラフを少し小さく */
+#maleAgeChart,
+#femaleAgeChart {
+  max-width: 160px;
+  margin: 0 auto;
+}
 </style>
 </head>
 
@@ -417,6 +467,95 @@ instaとtiktokにて投稿後約10日間で...
 </div>
 </section>
 
+    <section class="section">
+<div class="card">
+<h2 class="section-title text-base md:text-lg">フォロワー属性</h2>
+
+<!-- 全体の性別分布（数字表示） -->
+<div class="flex justify-center gap-8 mt-6">
+  <div class="text-center">
+    <p class="text-xs font-semibold text-gray-600">男性</p>
+    <p class="text-2xl font-extrabold text-indigo-600">68.7%</p>
+  </div>
+  <div class="text-center">
+    <p class="text-xs font-semibold text-gray-600">女性</p>
+    <p class="text-2xl font-extrabold text-pink-500">31.3%</p>
+  </div>
+</div>
+
+<!-- 年齢分布 円グラフ -->
+<div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6">
+  <div>
+    <p class="text-sm md:text-base font-bold text-center mb-2">男性 年齢分布</p>
+    <canvas id="maleAgeChart" height="200"></canvas>
+  </div>
+
+  <div>
+    <p class="text-sm md:text-base font-bold text-center mb-2">女性 年齢分布</p>
+    <canvas id="femaleAgeChart" height="200"></canvas>
+  </div>
+</div>
+
+<!-- 男性 -->
+<p class="text-sm md:text-base font-bold mt-4">男性フォロワー</p>
+
+<p class="text-sm md:text-base mt-3">
+男性フォロワーは仕事終わりの一杯、同僚との飲み会、接待やグループ利用など、<br>
+「今日はどこに行こうか？」とSNSでお店を探すビジネスパーソン層に多く閲覧されています。
+</p>
+
+<!-- 女性 -->
+<p class="text-sm md:text-base font-bold mt-6">女性フォロワー</p>
+<p class="text-sm md:text-base mt-3">
+女性フォロワーはカフェ・スイーツ・ランチ・話題のお店など、<br>
+日常使いから「ちょっと行ってみたい」お店探しに積極的な
+トレンド感度の高い女性層に強くリーチしています。
+</p>
+
+</div>
+</section>
+
+
+<section class="section">
+<div class="card">
+<h2 class="section-title text-base md:text-lg">PR後の成果レポート</h2>
+
+<p class="text-sm md:text-base mb-4">
+店舗様のマーケティング視点も踏まえた<br>
+インフルエンサー活動を心がけています。
+</p>
+
+<p class="text-sm md:text-base mb-4">
+ご希望の店舗様には、投稿後10〜14日を目安に<br>
+独自の分析データ（PDF）をお渡しいたします。
+</p>
+
+<ul class="space-y-2 text-sm md:text-base">
+<li>・Instagram / TikTok 各媒体のインサイト数値 </li>
+<li>・オーディエンス分析（男女比・反応の良い層）</li>
+<li>・来店人数予測やコストを考慮した損益分岐点等</li>
+</ul>
+
+<p class="text-sm md:text-base mt-4">
+今後のインフルエンサー活用やSNS運用の参考資料として
+ご活用いただければと考えています。<br>
+<br>
+※以下、実際にお渡ししているレポート<br>
+（本ページではボカシを入れています）
+</p>
+
+ <!-- サンプル画像 -->
+    <div class="mt-3">
+      <img  
+        src="./sumple.png"
+        alt="PR後の成果レポート サンプル画像"
+        class="w-full rounded-lg border"
+      />
+    </div>
+    
+</div>
+</section>
+    
 <section class="section">
 <div class="card">
 <h2 class="section-title text-base md:text-lg">なぜ、発信をしているのか?</h2>
@@ -561,16 +700,88 @@ block: 'start'
 }
 });
 });
+
+// 円グラフ描画（IntersectionObserverで表示時に動かす）
+const chartObserver = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+
+      // 性別分布
+ 
+      // 男性 年齢分布
+     new Chart(document.getElementById('maleAgeChart'), {
+  type: 'pie',
+  data: {
+    labels: ['25–34歳', '35–44歳', '45–54歳', 'その他'],
+    datasets: [{
+      data: [32.1, 21.1, 27.3, 19.5],
+      backgroundColor: ['#6366f1', '#818cf8', '#a5b4fc', '#e5e7eb']
+    }]
+  },
+  options: {
+    animation: { duration: 1200 },
+    plugins: {
+      legend: {
+        display: false
+      },
+      datalabels: {
+        color: '#ffffff',
+        font: {
+          weight: 'bold',
+          size: 11
+        },
+        formatter: (value, ctx) => {
+          const label = ctx.chart.data.labels[ctx.dataIndex];
+          return `${label}\n${value}%`;
+        }
+      }
+    }
+  },
+  plugins: [ChartDataLabels]
+});
+
+      // 女性 年齢分布
+new Chart(document.getElementById('femaleAgeChart'), {
+  type: 'pie',
+  data: {
+    labels: ['25–34歳', '35–44歳', '45–54歳', 'その他'],
+    datasets: [{
+      data: [41.1, 28.6, 13.0, 17.3],
+      backgroundColor: ['#ec4899', '#f472b6', '#f9a8d4', '#fce7f3']
+    }]
+  },
+  options: {
+    animation: { duration: 1200 },
+    plugins: {
+      legend: {
+        display: false
+      },
+      datalabels: {
+        color: '#ffffff',
+        font: {
+          weight: 'bold',
+          size: 11
+        },
+        formatter: (value, ctx) => {
+          const label = ctx.chart.data.labels[ctx.dataIndex];
+          return `${label}\n${value}%`;
+        }
+      }
+    }
+  },
+  plugins: [ChartDataLabels]
+});
+
+
+
+      chartObserver.disconnect();
+    }
+  });
+}, { threshold: 0.4 });
+
+chartObserver.observe(document.getElementById('maleAgeChart'));
+
 </script>
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
